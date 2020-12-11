@@ -3,7 +3,7 @@ import sys, os, numpy as np
 
 assert(len(sys.argv) > 1)
 assert(os.path.isfile(sys.argv[1]))
-
+    
 filesplit = os.path.split(sys.argv[1])
 folder = filesplit[0]
 filename = os.path.splitext(filesplit[1])[0]
@@ -25,9 +25,26 @@ with open(sys.argv[1], 'r') as csvfile:
             #print(line[char])
             if line[char] == " ":
                 value = 11
+            elif line[char] == "t": # torch
+                value = 57
+            elif line[char] == "w": # walltorch
+                value = 58
+            elif line[char] == "c": # chandelier
+                value = 49
+            elif line[char] == "b": # barrel
+                value = 46
+            elif line[char] == "f": # small flag
+                value = 51
+            elif line[char] == "g": # big flag
+                value = 52
+            elif line[char] == "p": # pot
+                value = 53
+            elif line[char] == "♣": # plant in pot
+                value = 55
+
             elif line[char] == "▓":
                 value = 34
-                if cpt > 1 and level[position - width + 2] == 34:
+                if cpt > 1 and level[position - width + 2] in (34, 57, 51):
                     value = 33
             elif line[char] == "▒":
                 value = 35
@@ -44,7 +61,7 @@ with open(sys.argv[1], 'r') as csvfile:
             elif line[char] == "┼":
                 value = 18
             elif line[char] == "┤":
-                value = 22
+                value = 30
             elif line[char] == "└":
                 value = 14
             elif line[char] == "┴":
@@ -52,32 +69,38 @@ with open(sys.argv[1], 'r') as csvfile:
             elif line[char] == "┘":
                 value = 15
             elif line[char] == "│":
-                value = 32
-                if cpt == 0 or level[position - width + 2] not in [32, 31, 18, 28, 22, 16, 17]:
+                if cpt == 0 or level[position - width + 2] not in [32, 31, 18, 28, 22, 16, 17, 29, 30]:
+                    print(str(cpt)+'x'+str(char))
                     value = 29
                 elif cpt == height - 1:
                     value = 19
+                else:
+                    value = 32
             elif line[char] == "─":
                 value = 20
-                if char > 0     && line[char-1] not in ["─", "┴", "┬", "┼", "├", "┌", "└"]:
+                if char > 0     and line[char-1] not in ["─", "┴", "┬", "┼", "├", "┌", "└"]:
                     value = 21
-                if char < width && line[char+1] not in ["─", "┴", "┬", "┼", "┤", "┘", "┐"]:
+                if char < width and line[char+1] not in ["─", "┴", "┬", "┼", "┤", "┘", "┐"]:
                     value = 22
             elif line[char] == "▼":
                 value = 9
             elif line[char] == "▲":
                 value = 23
+            elif line[char] == "~":
+                value = 36
             elif line[char] == "¤":
                 value = 37
             elif line[char] == "¶":
                 value = 38
-                if cpt > 0 and level[position - width + 2] == 3:
+                if cpt > 0 and level[position - width + 2] == 33:
                     value = 39
             else:
                 value = 11
-            if cpt > 1 and line[char] not in ["│", "┴", "┼", "├", "┤", "┘", "└"] and level[position - width + 2] == 16:
+            if cpt > 1 and line[char] not in ["│", "┴", "┼", "├", "┤", "┘", "└"] and level[position - width + 2] == 32:
                 level[position - width + 2] = 19
-            "print(str(position)+ ' = '+str(value))
+            #print(str(position)+ ' = '+str(value))
             level[position+2] = value
         cpt += 1
+    print(str(level[2+18]))
     level.byteswap().tofile(file_out)
+
