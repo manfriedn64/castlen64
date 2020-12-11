@@ -530,6 +530,11 @@ beginseg
   flags   RAW
   include "assets/scenery/window03.551"
 endseg
+beginseg
+  name    "SceneryWater"
+  flags   RAW
+  include "assets/scenery/water.551"
+endseg
 
 
 

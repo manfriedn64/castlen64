@@ -141,6 +141,7 @@ EXTERN_SEGMENT(SceneryWallTorch);
 EXTERN_SEGMENT(SceneryWindow01);
 EXTERN_SEGMENT(SceneryWindow02);
 EXTERN_SEGMENT(SceneryWindow03);
+EXTERN_SEGMENT(SceneryWater);
 
 
 EXTERN_SEGMENT(64_back_attack);

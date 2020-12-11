@@ -48,7 +48,7 @@ u16* LowFrameBuf[2] = {
 };
 
 void checkControls() {
-	if (game.level->loadControls)
+	if (game.level->loadControls &&  game.state == GAMESTATE_NORMAL)
 		game.level->loadControls();
 	return;
 }
@@ -104,7 +104,7 @@ void setup_640() {
 		game.scale = 1;
 		game.godmod = False;
 		game.lifes = 1;
-		game.level = &levels[1];
+		game.level = &levels[3];
 	}
 	else {
 		setFrameBuffer16b();
@@ -259,6 +259,7 @@ void level00_64() {
 	my2D_loadTexture(&texture[79], (u32)_SceneryWindow01SegmentRomStart, (u32)_SceneryWindow01SegmentRomEnd, 64, 96);
 	my2D_loadTexture(&texture[80], (u32)_SceneryWindow02SegmentRomStart, (u32)_SceneryWindow02SegmentRomEnd, 64, 96);
 	my2D_loadTexture(&texture[81], (u32)_SceneryWindow03SegmentRomStart, (u32)_SceneryWindow03SegmentRomEnd, 96, 96);
+	my2D_loadTexture(&texture[95], (u32)_SceneryWaterSegmentRomStart, (u32)_SceneryWaterSegmentRomEnd, 256, 64);
 	
 	
 	my2D_loadTexture(&texture[82], (u32)_RatBackDeadSegmentRomStart, (u32)_RatBackDeadSegmentRomEnd, 48, 320);
@@ -370,8 +371,8 @@ void loadMap(Map* map) {
 	for (row = 0; row < game.level->map.height; row++) {
 		for (column = 0; column < game.level->map.width; column++) {
 			memcpy(&value, pointer8++, sizeof value);
-			if ((int)value == 38 || (int)value == 49 || (int)value == 46 || (int)value == 53 || (int)value == 55) // pillar, candelier, barrel, pot, plant in pot
-				appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[11]));
+			//if ((int)value == 38 || (int)value == 49 || (int)value == 46 || (int)value == 53 || (int)value == 55) // pillar, candelier, barrel, pot, plant in pot
+			//	appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[11]));
 			if ((int)value == 57 || (int)value == 51) // torch, small flag
 				appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[34]));
 			if ((int)value == 58 || (int)value ==  52) // walltorch, big flag
@@ -486,6 +487,7 @@ void initLevel_00() {
 	animations[6] = (Animation){&animated_sprites[6], 0, 0, 0, ANIMATION_STATUS_RUNNING, 0, 0, 0};
 	animations[7] = (Animation){&animated_sprites[7], 0, 0, 0, ANIMATION_STATUS_RUNNING, 0, 0, 0};
 	animations[8] = (Animation){&animated_sprites[8], 0, 0, 0, ANIMATION_STATUS_RUNNING, 0, 0, 0};
+	animations[9] = (Animation){&animated_sprites[9], 0, 0, 0, ANIMATION_STATUS_RUNNING, 0, 0, 0};
 	
 	animated_sprites[0] = (AnimatedSprite){&texture[77], 64, 64,  4, 1};
 	animated_sprites[1] = (AnimatedSprite){&texture[78], 64, 128,  4, 1};
@@ -497,6 +499,7 @@ void initLevel_00() {
 	animated_sprites[5] = (AnimatedSprite){&texture[62], 64, 172,  2, 0};
 	animated_sprites[6] = (AnimatedSprite){&texture[64], 64, 64,  4, 0}; // lever
 	animated_sprites[7] = (AnimatedSprite){&texture[65], 64, 64,  2, 0}; // trap
+	animated_sprites[9] = (AnimatedSprite){&texture[95], 64, 64,  4, 0}; // water
 	
 	loadMap(&map);
 	
@@ -559,10 +562,10 @@ void initLevel_00() {
 	searched_row = key;
 	
 	// normal start position
-	initCharacter(128, 3712, 255);
+	//initCharacter(128, 3712, 255);
 	
 	
-	//initCharacter(3264, 3392, 255);
+	initCharacter(3264, 3392, 255);
 	
 	// test end game
 	/*initCharacter(2240, 256, 255);
@@ -668,7 +671,8 @@ void drawScreen() {
 		game.state = GAMESTATE_NORMAL;
 	}
 	gDPPipeSync(gfxListPtr++);
-	if (game.level->drawScreen)
+	
+	if (game.level->drawScreen && game.state == GAMESTATE_NORMAL)
 		game.level->drawScreen();
 }
 
