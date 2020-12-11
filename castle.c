@@ -104,7 +104,7 @@ void setup_640() {
 		game.scale = 1;
 		game.godmod = False;
 		game.lifes = 1;
-		game.level = &levels[3];
+		game.level = &levels[1];
 	}
 	else {
 		setFrameBuffer16b();
@@ -562,10 +562,10 @@ void initLevel_00() {
 	searched_row = key;
 	
 	// normal start position
-	//initCharacter(128, 3712, 255);
+	initCharacter(128, 3712, 255);
 	
 	
-	initCharacter(3264, 3392, 255);
+	//initCharacter(3264, 3392, 255);
 	
 	// test end game
 	/*initCharacter(2240, 256, 255);
