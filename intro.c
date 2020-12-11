@@ -74,6 +74,11 @@ void drawIntro() {
 		externalDevicesInit(0);
 		step = 1;
 	}
+	if (my2dlibrary.debug) {	
+		sprintf(conbuf, "osTvType: %d  ", osTvType);
+		nuDebConTextPos(0,2, 6);
+		nuDebConCPuts(0, conbuf);
+	}
 }
 
 void updateIntro() {

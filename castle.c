@@ -1094,8 +1094,8 @@ void drawDebug()  {
 		sprintf(conbuf, "speed   : %d  ", game.speed);
 		nuDebConTextPos(0,2, 4);
 		nuDebConCPuts(0, conbuf);
-		sprintf(conbuf, "konami_pos : %d  ", konami_pos);
-		nuDebConTextPos(0,2, 5);
+		sprintf(conbuf, "osTvType: %d  ", osTvType);
+		nuDebConTextPos(0,2, 6);
 		nuDebConCPuts(0, conbuf);
 		sprintf(conbuf, "x       : %d  ", game.character.x);
 		nuDebConTextPos(0,2, 8);

@@ -123,6 +123,9 @@ void drawMainMenu() {
 		sprintf(conbuf, "Code    : %X  ", (u32)_codeSegmentEnd);
 		nuDebConTextPos(0,19,4);
 		nuDebConCPuts(0, conbuf);
+		sprintf(conbuf, "osTvType: %d  ", osTvType);
+		nuDebConTextPos(0,2, 6);
+		nuDebConCPuts(0, conbuf);
 	}
 
 }
