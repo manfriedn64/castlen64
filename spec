@@ -535,6 +535,76 @@ beginseg
   flags   RAW
   include "assets/scenery/water.551"
 endseg
+beginseg
+  name    "SceneryBook01Left"
+  flags   RAW
+  include "assets/scenery/bookshelf_01_left.551"
+endseg
+beginseg
+  name    "SceneryBook01Right"
+  flags   RAW
+  include "assets/scenery/bookshelf_01_right.551"
+endseg
+beginseg
+  name    "SceneryBook02Left"
+  flags   RAW
+  include "assets/scenery/bookshelf_02_left.551"
+endseg
+beginseg
+  name    "SceneryBook02Middle"
+  flags   RAW
+  include "assets/scenery/bookshelf_02_middle.551"
+endseg
+beginseg
+  name    "SceneryBook02Right"
+  flags   RAW
+  include "assets/scenery/bookshelf_02_right.551"
+endseg
+beginseg
+  name    "SceneryCarpetTL"
+  flags   RAW
+  include "assets/scenery/carpetTL.551"
+endseg
+beginseg
+  name    "SceneryCarpetT"
+  flags   RAW
+  include "assets/scenery/carpetT.551"
+endseg
+beginseg
+  name    "SceneryCarpetTR"
+  flags   RAW
+  include "assets/scenery/carpetTR.551"
+endseg
+beginseg
+  name    "SceneryCarpetL"
+  flags   RAW
+  include "assets/scenery/carpetL.551"
+endseg
+beginseg
+  name    "SceneryCarpetC"
+  flags   RAW
+  include "assets/scenery/carpetC.551"
+endseg
+beginseg
+  name    "SceneryCarpetR"
+  flags   RAW
+  include "assets/scenery/carpetR.551"
+endseg
+beginseg
+  name    "SceneryCarpetBL"
+  flags   RAW
+  include "assets/scenery/carpetBL.551"
+endseg
+beginseg
+  name    "SceneryCarpetB"
+  flags   RAW
+  include "assets/scenery/carpetB.551"
+endseg
+beginseg
+  name    "SceneryCarpetBR"
+  flags   RAW
+  include "assets/scenery/carpetBR.551"
+endseg
 
 
 

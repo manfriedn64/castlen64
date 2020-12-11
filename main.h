@@ -142,7 +142,20 @@ EXTERN_SEGMENT(SceneryWindow01);
 EXTERN_SEGMENT(SceneryWindow02);
 EXTERN_SEGMENT(SceneryWindow03);
 EXTERN_SEGMENT(SceneryWater);
-
+EXTERN_SEGMENT(SceneryBook01Left);
+EXTERN_SEGMENT(SceneryBook01Right);
+EXTERN_SEGMENT(SceneryBook02Left);
+EXTERN_SEGMENT(SceneryBook02Middle);
+EXTERN_SEGMENT(SceneryBook02Right);
+EXTERN_SEGMENT(SceneryCarpetTL);
+EXTERN_SEGMENT(SceneryCarpetT);
+EXTERN_SEGMENT(SceneryCarpetTR);
+EXTERN_SEGMENT(SceneryCarpetL);
+EXTERN_SEGMENT(SceneryCarpetC);
+EXTERN_SEGMENT(SceneryCarpetR);
+EXTERN_SEGMENT(SceneryCarpetBL);
+EXTERN_SEGMENT(SceneryCarpetB);
+EXTERN_SEGMENT(SceneryCarpetBR);
 
 EXTERN_SEGMENT(64_back_attack);
 EXTERN_SEGMENT(64_back_defend);

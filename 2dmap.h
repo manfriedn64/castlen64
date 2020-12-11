@@ -128,7 +128,7 @@ void appendMapColumn(Map* map, MapColumn* new_column);
 MapColumn* findMapColumn(Map* map, int x);
 MapColumn* nextMapColumn(Map* map, int x);
 MapRow* findMapRow(MapRow* row, int y);
-MapRow* sortRows(MapRow* row);
+MapRow* sortRows(Map* map, MapRow* row);
 MapRow* sortMap(Map* map);
 void appendMapRow(MapColumn* column, MapRow* row);
 MapRow* nextMapRow(Map* map, int y, Tile* tile);

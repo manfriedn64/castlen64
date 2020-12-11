@@ -144,13 +144,13 @@ MapDraw checkMapPosition(Map* map, int x, int y) {
 MapRow* sortMap(Map* map) {
 	MapColumn* column = map->start;
 	while (column) {
-		column->first_row = sortRows(column->first_row);
+		column->first_row = sortRows(map, column->first_row);
 		column = column->next;
 	}
 }
 
 
-MapRow* sortRows(MapRow* row) {
+MapRow* sortRows(Map* map, MapRow* row) {
 	Bool sorted = False;
 	MapRow* start = row;
 	MapRow* current;
@@ -162,7 +162,7 @@ MapRow* sortRows(MapRow* row) {
 		current = start;
 		sorted = True;
 		while(current->next) {
-			if (current->y + current->tile->foreground  > current->next->y + current->next->tile->foreground) {
+			if (current->y * map->row_height + current->tile->foreground  > current->next->y * map->row_height + current->next->tile->foreground) {
 				next = current->next;
 				previous = current->previous;
 				current->next = current->next->next;

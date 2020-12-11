@@ -134,4 +134,6 @@ Level					levels[10];
 u64						time_lastmove;
 MusicTrack				music_tracks[3];
 
+Map						map;
+
 #endif /* _PLATFORM_H_*/
