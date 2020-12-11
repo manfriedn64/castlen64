@@ -104,7 +104,7 @@ void setup_640() {
 		game.scale = 1;
 		game.godmod = False;
 		game.lifes = 1;
-		game.level = &levels[3];
+		game.level = &levels[1];
 	}
 	else {
 		setFrameBuffer16b();
