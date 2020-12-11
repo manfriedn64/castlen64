@@ -58,7 +58,9 @@ struct Game {
 	int			lifes;
 	Bool		godmod;
 	Character	character;
-	int		scale;
+	int			scale;
+	Bool 		rumble;
+	int			speed;
 } ;
 
 struct RomSegment {
@@ -66,6 +68,7 @@ struct RomSegment {
 	u32		end;
 };
 
+Bool externalDevicesInit(int);
 
 int	collisionScenery(CollisionBox* collision);
 int	collisionBloc(CollisionBox* collision);

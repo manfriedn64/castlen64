@@ -71,6 +71,7 @@ void drawIntro() {
 			
 		}		
 	} else {
+		externalDevicesInit(0);
 		step = 1;
 	}
 }

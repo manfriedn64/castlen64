@@ -22,6 +22,9 @@ extern Gfx*	gfxListStartPtr;
 NUContData			contData[NU_CONT_MAXCONTROLLERS];
 u8 					contPattern;
 
+char konami[10] = "UUDDLRLRBA";
+int konami_pos = 0;
+
 Map						map;
 MapRow*					searched_row;
 
@@ -79,6 +82,19 @@ void setFrameBuffer16b() {
 	my2dlibrary.colors = G_IM_SIZ_16b;
 }
 
+Bool externalDevicesInit(int controller_number) {
+	s32 ret;
+	ret = nuContRmbCheck(controller_number);
+	if (!ret) {
+		game.rumble = True;
+		nuContRmbModeSet(controller_number, NU_CONT_RMB_MODE_ENABLE);
+		nuContRmbStart(controller_number, 128, 10);
+		return True;
+	}
+	return False;
+}
+
+
 void setup_640() {
 	current_music = NULL;
 	if (osTvType == OS_TV_PAL ) {
@@ -99,6 +115,7 @@ void setup_640() {
 	levels[3] = (Level){"Level One", initLevel_00, updateLevel, drawLevel, NULL};
 
 	game.state = GAMESTATE_NORMAL;
+	game.speed = 4;
 	setFrameBuffer16b();
 	if (memory_size == 0x00800000) {
 		game.scale = 1;
@@ -398,6 +415,7 @@ void initLevel_00() {
 	MapRow* barrel;
 	MapRow* levelcompleted;
 	
+	externalDevicesInit(0);
 	
 	level00_64();
 	loadRAMLevel(&game.level->map, (u32)_Level01SegmentRomStart, (u32)_Level01SegmentRomEnd);
@@ -716,6 +734,34 @@ void drawLevel() {
 	drawDebug();
 }
 
+void checkKonamiCode() {
+	char current = NULL;
+	if (contData[0].trigger & D_JPAD || contData[0].stick_y < -32)
+		current = 'D';
+	if (contData[0].trigger & U_JPAD || contData[0].stick_y > 32)
+		current = 'U';
+	if (contData[0].trigger & R_JPAD || contData[0].stick_x > 32)
+		current = 'R';
+	if (contData[0].trigger & L_JPAD || contData[0].stick_x < -32)
+		current = 'L';
+	if (contData[0].trigger & A_BUTTON)
+		current = 'A';
+	if (contData[0].trigger & B_BUTTON)
+		current = 'B';
+	if (current == konami[konami_pos])
+		konami_pos++;
+	else
+		if (current != NULL)
+			konami_pos = 0;
+	if (konami_pos > 9) {
+		if (game.speed == 4)
+			game.speed = 8;
+		else
+			game.speed = 4;
+		konami_pos = 0;
+	}
+}
+
 void updateLevel() {
 	Character* tmp_character;
 	int i, original_segment, old_x, old_y, collision;
@@ -727,7 +773,9 @@ void updateLevel() {
 		tmp_character = tmp_character->previous;
 	
 	nuContDataGetExAll(contData);
-
+	
+	checkKonamiCode();
+	
 	// activate debug
 	if(contData[0].trigger & Z_TRIG) 
 		if (my2dlibrary.debug) 
@@ -774,7 +822,7 @@ void updateLevel() {
 			game.character.animation.frame  = 0;
 			game.character.animation.status = ANIMATION_STATUS_RUNNING;
 		}
-		game.character.move_x += 4;
+		game.character.move_x += game.speed;
 	}
 	else if (contData[i].stick_x < -32 || contData[0].button & L_JPAD) {
 		game.character.state = CHARACTER_WALK;
@@ -786,7 +834,7 @@ void updateLevel() {
 			game.character.animation.frame  = 0;
 			game.character.animation.status = ANIMATION_STATUS_RUNNING;
 		}
-		game.character.move_x -= 4;
+		game.character.move_x -= game.speed;
 	}
 	else if (contData[i].stick_y > 32 || contData[0].button & U_JPAD) {
 		game.character.state = CHARACTER_WALK;
@@ -798,7 +846,7 @@ void updateLevel() {
 			game.character.animation.frame  = 0;
 			game.character.animation.status = ANIMATION_STATUS_RUNNING;
 		}
-		game.character.move_y -= 4;
+		game.character.move_y -= game.speed;
 	}
 	else if (contData[i].stick_y < -32 || contData[0].button & D_JPAD) {
 		game.character.state = CHARACTER_WALK;
@@ -810,7 +858,7 @@ void updateLevel() {
 			game.character.animation.frame  = 0;
 			game.character.animation.status = ANIMATION_STATUS_RUNNING;
 		}
-		game.character.move_y += 4;
+		game.character.move_y += game.speed;
 	}
 	else if ((!(contData[0].button & U_JPAD || contData[0].button & D_JPAD || contData[0].button & L_JPAD || contData[0].button & R_JPAD) && (contData[i].stick_y < 32 && contData[i].stick_y > -32 && contData[i].stick_x < 32 && contData[i].stick_x > -32)) && game.character.state != CHARACTER_ATTACK) {
 		game.character.state = CHARACTER_IDLE;
@@ -1043,6 +1091,12 @@ void drawDebug()  {
 		sprintf(conbuf, "log     : %d  ", (int)(log(32)/log(2)));
 		nuDebConTextPos(0,2, 7);
 		nuDebConCPuts(0, conbuf);*/
+		sprintf(conbuf, "speed   : %d  ", game.speed);
+		nuDebConTextPos(0,2, 4);
+		nuDebConCPuts(0, conbuf);
+		sprintf(conbuf, "konami_pos : %d  ", konami_pos);
+		nuDebConTextPos(0,2, 5);
+		nuDebConCPuts(0, conbuf);
 		sprintf(conbuf, "x       : %d  ", game.character.x);
 		nuDebConTextPos(0,2, 8);
 		nuDebConCPuts(0, conbuf);
@@ -1140,6 +1194,7 @@ int collisionBigDoor(CollisionBox* collision, MapRow* row, int is_character) {
 		else if (collision->action == COLLISION_ACTION_PUSH && row->state == TILE_ACTION_CLOSED && game.character.keys > 0) {
 			game.character.keys--;
 			row->state = TILE_ACTION_OPENED;
+			nuContRmbStart(0, 256, 30);
 			actionRow(row);
 		}
 	return COLLISION_NONE;
@@ -1149,8 +1204,11 @@ int collisionBarrel(CollisionBox* collision, MapRow* row, int is_character) {
 	if (checkIntersection(collision->start_x, collision->end_x, 2, 61) && checkIntersection(collision->start_y, collision->end_y, 5, 55))
 		if (collision->action == COLLISION_ACTION_BLOCK)
 			return COLLISION_BLOCK;
-		else if (collision->action == COLLISION_ACTION_SMASH && row->action != NULL) 
+		else if (collision->action == COLLISION_ACTION_SMASH && row->action != NULL) {
 			row->action(row);
+			if (game.rumble)
+				nuContRmbStart(0, 256, 80);
+		}
 	return COLLISION_NONE;	
 }
 
@@ -1168,6 +1226,7 @@ int collisionLever(CollisionBox* collision, MapRow* row, int is_character) {
 			row->state++;
 			if (row->state == TILE_ACTION_LEVER_OPENED)
 				actionRow(row);
+			nuContRmbStart(0, 256, 20);
 		}
 	return COLLISION_NONE;
 }
@@ -1208,6 +1267,7 @@ int collisionKey(CollisionBox* collision, MapRow* row, int is_character) {
 		if (row->state == TILE_ACTION_CLOSED && is_character) {
 			game.character.keys++;
 			row->state = TILE_ACTION_OPENED;
+			nuContRmbStart(0, 256, 10);
 		}
 	}
 	return COLLISION_NONE;
@@ -1219,6 +1279,7 @@ int collisionButton(CollisionBox* collision, MapRow* row, int is_character) {
 		checkIntersection(collision->start_x, collision->end_x, 7, 56) && checkIntersection(collision->start_y, collision->end_y, 3, 54)) {
 		//collision->start_y  > 3 && collision->end_y < 54 && collision->start_x > 7 && collision->end_y < 56) {
 		row->state = TILE_ACTION_OPENED;
+		nuContRmbStart(0, 256, 40);
 		actionRow(row);
 	}
 	return COLLISION_NONE;
