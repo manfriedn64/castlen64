@@ -2,6 +2,10 @@
 
 Should work fine on Project64 64 Nightly build, mupen64, cen64 or hardware
 
+:exclamation: Expansion Pak required
+
+:video_game: Rumble Pak compatible
+
 ### Commands
 
 D-Pad or stick to move
@@ -38,3 +42,5 @@ Supernatural (https://incompetech.filmmusic.io/song/4446-supernatural)
 ### programming
 
 by manfriedn64 (https://twitter.com/manfriedn64)
+
+![screenshot](https://github.com/manfriedn64/castlen64/blob/master/screenshots/readme.png?raw=true)
