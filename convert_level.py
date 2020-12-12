@@ -25,6 +25,8 @@ with open(sys.argv[1], 'r') as csvfile:
             #print(line[char])
             if line[char] == " ":
                 value = 11
+            elif line[char] == "k": # key
+                value = 43
             elif line[char] == "t": # torch
                 value = 57
             elif line[char] == "w": # walltorch
@@ -33,14 +35,56 @@ with open(sys.argv[1], 'r') as csvfile:
                 value = 49
             elif line[char] == "b": # barrel
                 value = 46
+            elif line[char] == "B": # barrel with key
+                value = 255
             elif line[char] == "f": # small flag
                 value = 51
             elif line[char] == "g": # big flag
                 value = 52
             elif line[char] == "p": # pot
                 value = 53
+            elif line[char] == "P": # pot with key
+                value = 254
             elif line[char] == "♣": # plant in pot
                 value = 55
+            elif line[char] == "D": # key door
+                value = 253
+            elif line[char] == "╔": # carpet
+                value = 68
+            elif line[char] == "╦":
+                value = 69
+            elif line[char] == "╗":
+                value = 70
+            elif line[char] == "╠":
+                value = 71
+            elif line[char] == "╬":
+                value = 72
+            elif line[char] == "╣":
+                value = 73
+            elif line[char] == "╚":
+                value = 74
+            elif line[char] == "╩":
+                value = 75
+            elif line[char] == "╝":
+                value = 76
+            elif line[char] == "«": # book shelf
+                value = 63
+            elif line[char] == "»":
+                value = 64
+            elif line[char] == "<":
+                value = 65
+            elif line[char] == "-":
+                value = 66
+            elif line[char] == ">":
+                value = 67
+            elif line[char] == "▄": # windows
+                value = 59
+            elif line[char] == "▀":
+                value = 60
+            elif line[char] == "1":
+                value = 61
+            elif line[char] == "2":
+                value = 77
 
             elif line[char] == "▓":
                 value = 34
@@ -94,8 +138,12 @@ with open(sys.argv[1], 'r') as csvfile:
                 value = 38
                 if cpt > 0 and level[position - width + 2] == 33:
                     value = 39
+            elif line[char] == "·":
+                value = 12
+            elif line[char] == "■":
+                value = 13
             else:
-                value = 11
+                value = 11 # ground
             if cpt > 1 and line[char] not in ["│", "┴", "┼", "├", "┤", "┘", "└"] and level[position - width + 2] == 32:
                 level[position - width + 2] = 19
             #print(str(position)+ ' = '+str(value))

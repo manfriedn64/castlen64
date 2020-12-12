@@ -87,13 +87,12 @@ void platformInit_320();
 void platformInit();
 
 
-void initLevel_00();
-void initShip(int x, int y, int angle);
-void initGame();
+
 void checkControls();
 void drawDebug();
 
-int collisionBigDoor(CollisionBox* , MapRow*, int);
+int collisionDoorKeyLeft(CollisionBox* , MapRow*, int);
+int collisionDoorKeyRight(CollisionBox* , MapRow*, int);
 int collisionTrap(CollisionBox* , MapRow*, int);
 int collisionButton(CollisionBox* , MapRow*, int);
 int collisionKey(CollisionBox* , MapRow*, int);
@@ -104,6 +103,7 @@ int collisionWallPillar(CollisionBox* , MapRow*, int);
 int collisionLever(CollisionBox* , MapRow* , int );
 int collisionBarrel(CollisionBox* , MapRow* , int );
 int collisionStairs(CollisionBox* , MapRow* , int );
+int collisionGround(CollisionBox* , MapRow* , int );
 
 int ratCollisionRight(Map* , int , int , int );
 int ratCollisionLeft(Map* , int , int , int );
@@ -120,8 +120,8 @@ int testCollisionPushLeft(Map* , int , int , int );
 int testCollisionPushBack(Map* , int , int , int );
 int testCollisionPushFront(Map* , int , int , int );
 
-void setBarrelToKey(MapRow*);
-void level01End(MapRow *);
+void setRowToKey(MapRow*);
+
 
 void setFrameBuffer32b();
 void setFrameBuffer16b();
@@ -133,6 +133,7 @@ AnimatedSprite			animated_sprites[30];
 Level					levels[10];
 u64						time_lastmove;
 MusicTrack				music_tracks[3];
+Character				characters[10];
 
 Map						map;
 

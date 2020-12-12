@@ -23,7 +23,7 @@ TEXHFILES 	=
 
 HFILES 		= 	main.h
 
-CODEFILES   	= 	main.c castle.c 2dlibrary.c 2dmap.c audio.c intro.c menu.c level_shared.c
+CODEFILES   	= 	main.c castle.c 2dlibrary.c 2dmap.c audio.c intro.c menu.c level_shared.c level00.c level01.c
 
 CODEOBJECTS	=	$(CODEFILES:.c=.o) $(NUSYSLIBDIR)/nusys.o
 

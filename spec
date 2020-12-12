@@ -23,396 +23,342 @@ beginseg
 endseg
 
 beginseg
-  name    "16_BorderBottom"
+  name    "Castle_BorderBottom"
   flags   RAW
-  include "assets/tiles/16x16/BorderBottom.551"
+  include "assets/tiles/castle/BorderBottom.551"
 endseg
 beginseg
-  name    "16_BorderCornerBL"
+  name    "Castle_BorderCornerBL"
   flags   RAW
-  include "assets/tiles/16x16/BorderCornerBL.551"
+  include "assets/tiles/castle/BorderCornerBL.551"
 endseg
 beginseg
-  name    "16_BorderCornerBR"
+  name    "Castle_BorderCornerBR"
   flags   RAW
-  include "assets/tiles/16x16/BorderCornerBR.551"
+  include "assets/tiles/castle/BorderCornerBR.551"
 endseg
 beginseg
-  name    "16_BorderCornerTL"
+  name    "Castle_BorderCornerTL"
   flags   RAW
-  include "assets/tiles/16x16/BorderCornerTL.551"
+  include "assets/tiles/castle/BorderCornerTL.551"
 endseg
 beginseg
-  name    "16_BorderCornerTR"
+  name    "Castle_BorderCornerTR"
   flags   RAW
-  include "assets/tiles/16x16/BorderCornerTR.551"
+  include "assets/tiles/castle/BorderCornerTR.551"
 endseg
 beginseg
-  name    "16_BorderLeft"
+  name    "Castle_BorderLeft"
   flags   RAW
-  include "assets/tiles/16x16/BorderLeft.551"
+  include "assets/tiles/castle/BorderLeft.551"
 endseg
 beginseg
-  name    "16_BorderRight"
+  name    "Castle_BorderRight"
   flags   RAW
-  include "assets/tiles/16x16/BorderRight.551"
+  include "assets/tiles/castle/BorderRight.551"
 endseg
 beginseg
-  name    "16_BorderUp"
+  name    "Castle_BorderUp"
   flags   RAW
-  include "assets/tiles/16x16/BorderUp.551"
+  include "assets/tiles/castle/BorderUp.551"
 endseg
 beginseg
-  name    "16_DownStairsL"
+  name    "Castle_DownStairsL"
   flags   RAW
-  include "assets/tiles/16x16/DownStairsL.551"
+  include "assets/tiles/castle/DownStairsL.551"
 endseg
 beginseg
-  name    "16_DownStairsR"
+  name    "Castle_DownStairsR"
   flags   RAW
-  include "assets/tiles/16x16/DownStairsR.551"
+  include "assets/tiles/castle/DownStairsR.551"
 endseg
 beginseg
-  name    "16_Ground1"
+  name    "Castle_Ground1"
   flags   RAW
-  include "assets/tiles/16x16/Ground1.551"
+  include "assets/tiles/castle/Ground1.551"
 endseg
 beginseg
-  name    "16_Ground2"
+  name    "Castle_Ground2"
   flags   RAW
-  include "assets/tiles/16x16/Ground2.551"
+  include "assets/tiles/castle/Ground2.551"
 endseg
 beginseg
-  name    "16_Ground3"
+  name    "Castle_Ground3"
   flags   RAW
-  include "assets/tiles/16x16/Ground3.551"
+  include "assets/tiles/castle/Ground3.551"
 endseg
 beginseg
-  name    "16_UpCornerBL"
+  name    "Castle_UpCornerBL"
   flags   RAW
-  include "assets/tiles/16x16/UpCornerBL.551"
+  include "assets/tiles/castle/UpCornerBL.551"
 endseg
 beginseg
-  name    "16_UpCornerBR"
+  name    "Castle_UpCornerBR"
   flags   RAW
-  include "assets/tiles/16x16/UpCornerBR.551"
+  include "assets/tiles/castle/UpCornerBR.551"
 endseg
 beginseg
-  name    "16_UpCornerTl"
+  name    "Castle_UpCornerTL"
   flags   RAW
-  include "assets/tiles/16x16/UpCornerTl.551"
+  include "assets/tiles/castle/UpCornerTL.551"
 endseg
 beginseg
-  name    "16_UpCornerTR"
+  name    "Castle_UpCornerTR"
   flags   RAW
-  include "assets/tiles/16x16/UpCornerTR.551"
+  include "assets/tiles/castle/UpCornerTR.551"
 endseg
 beginseg
-  name    "16_UpCross"
+  name    "Castle_UpCross"
   flags   RAW
-  include "assets/tiles/16x16/UpCross.551"
+  include "assets/tiles/castle/UpCross.551"
 endseg
 beginseg
-  name    "16_UpDown"
+  name    "Castle_UpDown"
   flags   RAW
-  include "assets/tiles/16x16/UpDown.551"
+  include "assets/tiles/castle/UpDown.551"
 endseg
 beginseg
-  name    "16_UpHorizontal"
+  name    "Castle_UpHorizontal"
   flags   RAW
-  include "assets/tiles/16x16/UpHorizontal.551"
+  include "assets/tiles/castle/UpHorizontal.551"
 endseg
 beginseg
-  name    "16_UpLeft"
+  name    "Castle_UpLeft"
   flags   RAW
-  include "assets/tiles/16x16/UpLeft.551"
+  include "assets/tiles/castle/UpLeft.551"
 endseg
 beginseg
-  name    "16_UpRight"
+  name    "Castle_UpRight"
   flags   RAW
-  include "assets/tiles/16x16/UpRight.551"
+  include "assets/tiles/castle/UpRight.551"
 endseg
 beginseg
-  name    "16_UpStairsL1"
+  name    "Castle_UpStairsL1"
   flags   RAW
-  include "assets/tiles/16x16/UpStairsL1.551"
+  include "assets/tiles/castle/UpStairsL1.551"
 endseg
 beginseg
-  name    "16_UpStairsL2"
+  name    "Castle_UpStairsL2"
   flags   RAW
-  include "assets/tiles/16x16/UpStairsL2.551"
+  include "assets/tiles/castle/UpStairsL2.551"
 endseg
 beginseg
-  name    "16_UpStairsR1"
+  name    "Castle_UpStairsR1"
   flags   RAW
-  include "assets/tiles/16x16/UpStairsR1.551"
+  include "assets/tiles/castle/UpStairsR1.551"
 endseg
 beginseg
-  name    "16_UpStairsR2"
+  name    "Castle_UpStairsR2"
   flags   RAW
-  include "assets/tiles/16x16/UpStairsR2.551"
+  include "assets/tiles/castle/UpStairsR2.551"
 endseg
 beginseg
-  name    "16_UpTBottom"
+  name    "Castle_UpTBottom"
   flags   RAW
-  include "assets/tiles/16x16/UpTBottom.551"
+  include "assets/tiles/castle/UpTBottom.551"
 endseg
 beginseg
-  name    "16_UpTLeft"
+  name    "Castle_UpTLeft"
   flags   RAW
-  include "assets/tiles/16x16/UpTLeft.551"
+  include "assets/tiles/castle/UpTLeft.551"
 endseg
 beginseg
-  name    "16_UpTop"
+  name    "Castle_UpTop"
   flags   RAW
-  include "assets/tiles/16x16/UpTop.551"
+  include "assets/tiles/castle/UpTop.551"
 endseg
 beginseg
-  name    "16_UpTRight"
+  name    "Castle_UpTRight"
   flags   RAW
-  include "assets/tiles/16x16/UpTRight.551"
+  include "assets/tiles/castle/UpTRight.551"
 endseg
 beginseg
-  name    "16_UpTTop"
+  name    "Castle_UpTTop"
   flags   RAW
-  include "assets/tiles/16x16/UpTTop.551"
+  include "assets/tiles/castle/UpTTop.551"
 endseg
 beginseg
-  name    "16_UpVertical"
+  name    "Castle_UpVertical"
   flags   RAW
-  include "assets/tiles/16x16/UpVertical.551"
+  include "assets/tiles/castle/UpVertical.551"
 endseg
 beginseg
-  name    "16_WallDown"
+  name    "Castle_WallDown"
   flags   RAW
-  include "assets/tiles/16x16/WallDown.551"
+  include "assets/tiles/castle/WallDown.551"
 endseg
 beginseg
-  name    "16_WallUp"
+  name    "Castle_WallUp"
   flags   RAW
-  include "assets/tiles/16x16/WallUp.551"
+  include "assets/tiles/castle/WallUp.551"
 endseg
 beginseg
-  name    "16_WallWater"
+  name    "Castle_WallWater"
   flags   RAW
-  include "assets/tiles/16x16/WallWater.551"
+  include "assets/tiles/castle/WallWater.551"
 endseg
 beginseg
-  name    "16_UpAlone"
+  name    "Castle_Water"
   flags   RAW
-  include "assets/tiles/16x16/UpAlone.551"
+  include "assets/tiles/castle/Water.551"
 endseg
 beginseg
-  name    "16_Pillar"
+  name    "Castle_UpAlone"
   flags   RAW
-  include "assets/tiles/16x16/Pillar.551"
+  include "assets/tiles/castle/UpAlone.551"
 endseg
 beginseg
-  name    "16_WallPillar"
+  name    "Castle_Pillar"
   flags   RAW
-  include "assets/tiles/16x16/WallPillar.551"
+  include "assets/tiles/castle/Pillar.551"
+endseg
+beginseg
+  name    "Castle_WallPillar"
+  flags   RAW
+  include "assets/tiles/castle/WallPillar.551"
 endseg
 
 beginseg
-  name    "16_Water"
+  name    "Dungeon_DownStairsL"
   flags   RAW
-  include "assets/tiles/16x16/Water.551"
+  include "assets/tiles/dungeon/DownStairsL.551"
 endseg
 beginseg
-  name    "64_BorderBottom"
+  name    "Dungeon_DownStairsR"
   flags   RAW
-  include "assets/tiles/64x64/BorderBottom.551"
+  include "assets/tiles/dungeon/DownStairsR.551"
 endseg
 beginseg
-  name    "64_BorderCornerBL"
+  name    "Dungeon_Ground1"
   flags   RAW
-  include "assets/tiles/64x64/BorderCornerBL.551"
+  include "assets/tiles/dungeon/Ground1.551"
 endseg
 beginseg
-  name    "64_BorderCornerBR"
+  name    "Dungeon_Ground2"
   flags   RAW
-  include "assets/tiles/64x64/BorderCornerBR.551"
+  include "assets/tiles/dungeon/Ground2.551"
 endseg
 beginseg
-  name    "64_BorderCornerTL"
+  name    "Dungeon_Ground3"
   flags   RAW
-  include "assets/tiles/64x64/BorderCornerTL.551"
+  include "assets/tiles/dungeon/Ground3.551"
 endseg
 beginseg
-  name    "64_BorderCornerTR"
+  name    "Dungeon_UpCornerBL"
   flags   RAW
-  include "assets/tiles/64x64/BorderCornerTR.551"
+  include "assets/tiles/dungeon/UpCornerBL.551"
 endseg
 beginseg
-  name    "64_BorderLeft"
+  name    "Dungeon_UpCornerBR"
   flags   RAW
-  include "assets/tiles/64x64/BorderLeft.551"
+  include "assets/tiles/dungeon/UpCornerBR.551"
 endseg
 beginseg
-  name    "64_BorderRight"
+  name    "Dungeon_UpCornerTL"
   flags   RAW
-  include "assets/tiles/64x64/BorderRight.551"
+  include "assets/tiles/dungeon/UpCornerTL.551"
 endseg
 beginseg
-  name    "64_BorderUp"
+  name    "Dungeon_UpCornerTR"
   flags   RAW
-  include "assets/tiles/64x64/BorderUp.551"
+  include "assets/tiles/dungeon/UpCornerTR.551"
 endseg
 beginseg
-  name    "64_DownStairsL"
+  name    "Dungeon_UpCross"
   flags   RAW
-  include "assets/tiles/64x64/DownStairsL.551"
+  include "assets/tiles/dungeon/UpCross.551"
 endseg
 beginseg
-  name    "64_DownStairsR"
+  name    "Dungeon_UpDown"
   flags   RAW
-  include "assets/tiles/64x64/DownStairsR.551"
+  include "assets/tiles/dungeon/UpDown.551"
 endseg
 beginseg
-  name    "64_Ground1"
+  name    "Dungeon_UpHorizontal"
   flags   RAW
-  include "assets/tiles/64x64/Ground1.551"
+  include "assets/tiles/dungeon/UpHorizontal.551"
 endseg
 beginseg
-  name    "64_Ground2"
+  name    "Dungeon_UpLeft"
   flags   RAW
-  include "assets/tiles/64x64/Ground2.551"
+  include "assets/tiles/dungeon/UpLeft.551"
 endseg
 beginseg
-  name    "64_Ground3"
+  name    "Dungeon_UpRight"
   flags   RAW
-  include "assets/tiles/64x64/Ground3.551"
+  include "assets/tiles/dungeon/UpRight.551"
 endseg
 beginseg
-  name    "64_UpCornerBL"
+  name    "Dungeon_UpStairsL"
   flags   RAW
-  include "assets/tiles/64x64/UpCornerBL.551"
+  include "assets/tiles/dungeon/UpStairsL.551"
 endseg
 beginseg
-  name    "64_UpCornerBR"
+  name    "Dungeon_UpStairsR"
   flags   RAW
-  include "assets/tiles/64x64/UpCornerBR.551"
+  include "assets/tiles/dungeon/UpStairsR.551"
 endseg
 beginseg
-  name    "64_UpCornerTl"
+  name    "Dungeon_UpTBottom"
   flags   RAW
-  include "assets/tiles/64x64/UpCornerTl.551"
+  include "assets/tiles/dungeon/UpTBottom.551"
 endseg
 beginseg
-  name    "64_UpCornerTR"
+  name    "Dungeon_UpTLeft"
   flags   RAW
-  include "assets/tiles/64x64/UpCornerTR.551"
+  include "assets/tiles/dungeon/UpTLeft.551"
 endseg
 beginseg
-  name    "64_UpCross"
+  name    "Dungeon_UpTop"
   flags   RAW
-  include "assets/tiles/64x64/UpCross.551"
+  include "assets/tiles/dungeon/UpTop.551"
 endseg
 beginseg
-  name    "64_UpDown"
+  name    "Dungeon_UpTRight"
   flags   RAW
-  include "assets/tiles/64x64/UpDown.551"
+  include "assets/tiles/dungeon/UpTRight.551"
 endseg
 beginseg
-  name    "64_UpHorizontal"
+  name    "Dungeon_UpTTop"
   flags   RAW
-  include "assets/tiles/64x64/UpHorizontal.551"
+  include "assets/tiles/dungeon/UpTTop.551"
 endseg
 beginseg
-  name    "64_UpLeft"
+  name    "Dungeon_UpVertical"
   flags   RAW
-  include "assets/tiles/64x64/UpLeft.551"
+  include "assets/tiles/dungeon/UpVertical.551"
 endseg
 beginseg
-  name    "64_UpRight"
+  name    "Dungeon_WallDown"
   flags   RAW
-  include "assets/tiles/64x64/UpRight.551"
+  include "assets/tiles/dungeon/WallDown.551"
 endseg
 beginseg
-  name    "64_UpStairsL1"
+  name    "Dungeon_WallUp"
   flags   RAW
-  include "assets/tiles/64x64/UpStairsL1.551"
+  include "assets/tiles/dungeon/WallUp.551"
 endseg
 beginseg
-  name    "64_UpStairsL2"
+  name    "Dungeon_WallWater"
   flags   RAW
-  include "assets/tiles/64x64/UpStairsL2.551"
+  include "assets/tiles/dungeon/WallWater.551"
 endseg
 beginseg
-  name    "64_UpStairsR1"
+  name    "Dungeon_UpAlone"
   flags   RAW
-  include "assets/tiles/64x64/UpStairsR1.551"
+  include "assets/tiles/dungeon/UpAlone.551"
 endseg
 beginseg
-  name    "64_UpStairsR2"
+  name    "Dungeon_Pillar"
   flags   RAW
-  include "assets/tiles/64x64/UpStairsR2.551"
+  include "assets/tiles/dungeon/Pillar.551"
 endseg
 beginseg
-  name    "64_UpTBottom"
+  name    "Dungeon_WallPillar"
   flags   RAW
-  include "assets/tiles/64x64/UpTBottom.551"
+  include "assets/tiles/dungeon/WallPillar.551"
 endseg
-beginseg
-  name    "64_UpTLeft"
-  flags   RAW
-  include "assets/tiles/64x64/UpTLeft.551"
-endseg
-beginseg
-  name    "64_UpTop"
-  flags   RAW
-  include "assets/tiles/64x64/UpTop.551"
-endseg
-beginseg
-  name    "64_UpTRight"
-  flags   RAW
-  include "assets/tiles/64x64/UpTRight.551"
-endseg
-beginseg
-  name    "64_UpTTop"
-  flags   RAW
-  include "assets/tiles/64x64/UpTTop.551"
-endseg
-beginseg
-  name    "64_UpVertical"
-  flags   RAW
-  include "assets/tiles/64x64/UpVertical.551"
-endseg
-beginseg
-  name    "64_WallDown"
-  flags   RAW
-  include "assets/tiles/64x64/WallDown.551"
-endseg
-beginseg
-  name    "64_WallUp"
-  flags   RAW
-  include "assets/tiles/64x64/WallUp.551"
-endseg
-beginseg
-  name    "64_WallWater"
-  flags   RAW
-  include "assets/tiles/64x64/WallWater.551"
-endseg
-beginseg
-  name    "64_Water"
-  flags   RAW
-  include "assets/tiles/64x64/Water.551"
-endseg
-beginseg
-  name    "64_UpAlone"
-  flags   RAW
-  include "assets/tiles/64x64/UpAlone.551"
-endseg
-beginseg
-  name    "64_Pillar"
-  flags   RAW
-  include "assets/tiles/64x64/Pillar.551"
-endseg
-beginseg
-  name    "64_WallPillar"
-  flags   RAW
-  include "assets/tiles/64x64/WallPillar.551"
-endseg
+
 
 beginseg
   name    "ObjectBigDoorLeft"
@@ -529,6 +475,11 @@ beginseg
   name    "SceneryWindow03"
   flags   RAW
   include "assets/scenery/window03.551"
+endseg
+beginseg
+  name    "SceneryWindow04"
+  flags   RAW
+  include "assets/scenery/window04.551"
 endseg
 beginseg
   name    "SceneryWater"
@@ -832,6 +783,11 @@ beginseg
 	include "assets/intro/n64brew_title.551"
 endseg
 
+beginseg
+  name    "Level00"
+  flags   RAW
+  include "assets/levels/level00.blv"
+endseg
 beginseg
   name    "Level01"
   flags   RAW
