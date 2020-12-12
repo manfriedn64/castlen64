@@ -83,10 +83,10 @@ void initLevel_01() {
 	sortMap(&map);
 	game.character.side   = &game.character.front;
 	// normal start position
-	//initMainCharacter(128, 3712, 255);
+	initMainCharacter(128, 3712, 255);
 	
 	
-	initMainCharacter(3264, 3392, 255);
+	//initMainCharacter(3264, 3392, 255);
 	
 	// test end game
 	/*initCharacter(2240, 256, 255);

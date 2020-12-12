@@ -99,7 +99,6 @@ void initLevel_00() {
 
 	// normal start position
 	initMainCharacter(480, 1344, 255);
-	game.character.keys = 5;
 	
 	//initCharacter(3264, 3392, 255);
 	

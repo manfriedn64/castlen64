@@ -16,7 +16,7 @@ B Button = use the shield to protect / use a key
 
 Z Trigger = Activate debug print => worsen frame drops
 
-## credits
+## Credits
 
 ### graphism
 
@@ -39,7 +39,7 @@ Dangerous (https://incompetech.filmmusic.io/song/3587-dangerous)
 
 Supernatural (https://incompetech.filmmusic.io/song/4446-supernatural)
 
-### programming
+### Programming
 
 by manfriedn64 (https://twitter.com/manfriedn64)
 
