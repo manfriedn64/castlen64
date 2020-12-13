@@ -120,6 +120,7 @@ EXTERN_SEGMENT(ObjectDungeonTrap);
 EXTERN_SEGMENT(SceneryBarrel01);
 EXTERN_SEGMENT(SceneryBarrel02);
 EXTERN_SEGMENT(SceneryBarrel03);
+EXTERN_SEGMENT(SceneryCandelier);
 EXTERN_SEGMENT(SceneryCastleCandelier);
 EXTERN_SEGMENT(SceneryDungeonCandelier);
 EXTERN_SEGMENT(SceneryChair);

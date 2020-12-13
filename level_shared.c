@@ -141,7 +141,7 @@ void setTexturesCastle() {
 	my2D_loadTexture(&texture[77], (u32)_SceneryCastleTorchSegmentRomStart, (u32)_SceneryCastleTorchSegmentRomEnd, 256, 64);
 	my2D_loadTexture(&texture[78], (u32)_SceneryCastleWallTorchSegmentRomStart, (u32)_SceneryCastleWallTorchSegmentRomEnd, 256, 128);
 	my2D_loadTexture(&texture[72], (u32)_SceneryCastleFlag02SegmentRomStart, (u32)_SceneryCastleFlag02SegmentRomEnd, 64, 128);
-	my2D_loadTexture(&texture[69], (u32)_SceneryCastleCandelierSegmentRomStart, (u32)_SceneryCastleCandelierSegmentRomEnd, 192, 96);
+	//my2D_loadTexture(&texture[69], (u32)_SceneryCastleCandelierSegmentRomStart, (u32)_SceneryCastleCandelierSegmentRomEnd, 192, 96);
 }
 
 
@@ -155,6 +155,7 @@ void setTexturesShared() {
 	my2D_loadTexture(&texture[66], (u32)_SceneryBarrel01SegmentRomStart, (u32)_SceneryBarrel01SegmentRomEnd, 64, 82);
 	my2D_loadTexture(&texture[67], (u32)_SceneryBarrel02SegmentRomStart, (u32)_SceneryBarrel02SegmentRomEnd, 64, 82);
 	my2D_loadTexture(&texture[68], (u32)_SceneryBarrel03SegmentRomStart, (u32)_SceneryBarrel03SegmentRomEnd, 64, 82);
+	my2D_loadTexture(&texture[69], (u32)_SceneryCandelierSegmentRomStart, (u32)_SceneryCandelierSegmentRomEnd, 192, 96);
 	my2D_loadTexture(&texture[70], (u32)_SceneryChairSegmentRomStart, (u32)_SceneryChairSegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[73], (u32)_SceneryPot01SegmentRomStart, (u32)_SceneryPot01SegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[74], (u32)_SceneryPot02SegmentRomStart, (u32)_SceneryPot02SegmentRomEnd, 64, 64);
@@ -180,6 +181,7 @@ void setTexturesShared() {
 	my2D_loadTexture(&texture[107], (u32)_SceneryCarpetBLSegmentRomStart, (u32)_SceneryCarpetBLSegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[108], (u32)_SceneryCarpetBSegmentRomStart, (u32)_SceneryCarpetBSegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[109], (u32)_SceneryCarpetBRSegmentRomStart, (u32)_SceneryCarpetBRSegmentRomEnd, 64, 64);	
+	
 }
 
 void setTexturesCharacters() {
@@ -270,7 +272,7 @@ void setTexturesDungeon() {
 	my2D_loadTexture(&texture[77], (u32)_SceneryDungeonTorchSegmentRomStart, (u32)_SceneryDungeonTorchSegmentRomEnd, 256, 64);
 	my2D_loadTexture(&texture[78], (u32)_SceneryDungeonWallTorchSegmentRomStart, (u32)_SceneryDungeonWallTorchSegmentRomEnd, 256, 128);
 	my2D_loadTexture(&texture[72], (u32)_SceneryDungeonFlag02SegmentRomStart, (u32)_SceneryDungeonFlag02SegmentRomEnd, 64, 128);
-	my2D_loadTexture(&texture[69], (u32)_SceneryDungeonCandelierSegmentRomStart, (u32)_SceneryDungeonCandelierSegmentRomEnd, 192, 96);
+	//my2D_loadTexture(&texture[69], (u32)_SceneryDungeonCandelierSegmentRomStart, (u32)_SceneryDungeonCandelierSegmentRomEnd, 192, 96);
 }
 
 

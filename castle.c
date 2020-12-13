@@ -181,7 +181,7 @@ void loadMap(Map* map) {
 				
 				p_row->tile = tile;
 			} else {
-				if (i_value == 38 || i_value == 46 || i_value == 53 || i_value == 55 || i_value == 43) // pillar, barrel, pot, plant in pot or keu
+				if (i_value == 38 || i_value == 49  || i_value == 46 || i_value == 53 || i_value == 55 || i_value == 43) // pillar, candelier, barrel, pot, plant in pot or keu
 					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[11]));
 				if (i_value == 63 || i_value == 64 || i_value == 65 || i_value == 66 || i_value == 67) // book shelf
 					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[11]));

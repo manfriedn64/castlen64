@@ -422,6 +422,11 @@ beginseg
   include "assets/scenery/barrel03.551"
 endseg
 beginseg
+  name    "SceneryCandelier"
+  flags   RAW
+  include "assets/scenery/candelier.551"
+endseg
+beginseg
   name    "SceneryCastleCandelier"
   flags   RAW
   include "assets/scenery/castle_candelier.551"
