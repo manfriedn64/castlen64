@@ -37,7 +37,20 @@ Take a Chance (https://incompetech.filmmusic.io/song/4457-take-a-chance)
 
 Dangerous (https://incompetech.filmmusic.io/song/3587-dangerous)
 
+Discovery Hit (https://incompetech.filmmusic.io/song/3656-discovery-hit)
+
+Evil March (https://incompetech.filmmusic.io/song/3724-evil-march)
+
+Feral Chase (https://incompetech.filmmusic.io/song/3746-feral-chase)
+
+Machinations (https://incompetech.filmmusic.io/song/4011-machinations)
+
+News Theme (https://incompetech.filmmusic.io/song/4122-news-theme)
+
 Supernatural (https://incompetech.filmmusic.io/song/4446-supernatural)
+
+An Upsetting Theme (https://incompetech.filmmusic.io/song/3362-an-upsetting-theme)
+
 
 ### Programming
 
