@@ -49,10 +49,8 @@ void initMainMenu() {
 	backgrounds[7] = (ScrollingBackground){0, 243, 0, 0, 1,   &texture[6], NULL};
 	//backgrounds[0] = (ScrollingBackground){0, 243, 0, 0, 1,   &texture[6], NULL};
 	
-	//loadAudio((u32)_MusicChancePtrSegmentRomStart, (u32)_MusicChancePtrSegmentRomEnd, (u32)_MusicChanceSfxSegmentRomStart, (u32)_MusicChanceSfxSegmentRomEnd, _MusicChanceWbkSegmentRomStart);
 	loadAudio((u32)_MusicAllPtrSegmentRomStart, (u32)_MusicAllPtrSegmentRomEnd, (u32)_MusicAllSfxSegmentRomStart, (u32)_MusicAllSfxSegmentRomEnd, _MusicAllWbkSegmentRomStart);
 	music_tracks[0] = (MusicTrack){FX_CHANCE, 37, 0, &music_tracks[0]};
-	//music_tracks[0].next_track = &music_tracks[0];
 	current_music = &music_tracks[0];
 
 	current_frame = 0;
@@ -142,9 +140,11 @@ void updateMenu() {
 	
 	if (contData[0].trigger & U_JPAD) {
 		menu_selected -= 1;
+		sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
 	}
 	if (contData[0].trigger & D_JPAD) {
 		menu_selected += 1;
+		sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
 	}
 	if (menu_selected < 0)
 		menu_selected = 1;

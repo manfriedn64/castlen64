@@ -150,14 +150,11 @@ void initLevel_01() {
 	characters[0].left.push            = NULL;
 	characters[0].right.push           = NULL;
 	
-	//loadAudio((u32)_MusicLevel01PtrSegmentRomStart, (u32)_MusicLevel01PtrSegmentRomEnd, (u32)_MusicLevel01SfxSegmentRomStart, (u32)_MusicLevel01SfxSegmentRomEnd, _MusicLevel01WbkSegmentRomStart);
 	loadAudio((u32)_MusicAllPtrSegmentRomStart, (u32)_MusicAllPtrSegmentRomEnd, (u32)_MusicAllSfxSegmentRomStart, (u32)_MusicAllSfxSegmentRomEnd, _MusicAllWbkSegmentRomStart);
 	
 	music_tracks[0] = (MusicTrack){FX_EVILMARC, 71, 0, &music_tracks[1]};
 	music_tracks[1] = (MusicTrack){FX_DANGER, 58, 0, &music_tracks[2]};
 	music_tracks[2] = (MusicTrack){FX_SUPERNAT, 52, 0, &music_tracks[0]};
-	/*music_tracks[0].next_track = &music_tracks[1];
-	music_tracks[1].next_track = &music_tracks[0];*/
 	current_music = &music_tracks[0];
 }
 

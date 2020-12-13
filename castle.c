@@ -15,7 +15,7 @@
 #include "assets/music/all.h"
 
 
-extern musHandle sndHandle[2];
+extern musHandle sndHandle[3];
 
 extern objListCnt;
 extern Gfx*	gfxListPtr;
@@ -27,6 +27,7 @@ u8 					contPattern;
 char konami[10] = "UUDDLRLRBA";
 int konami_pos = 0;
 
+int last_step = 0;
 
 u64 time_to_fetch_screen;
 
@@ -380,6 +381,14 @@ void updateLevel() {
 		}
 	}
 	
+	if (game.character.state == CHARACTER_WALK && MusHandleAsk(sndHandle[2]) == 0) {
+		if (last_step) 
+			sndHandle[2] = nuAuStlSndPlayerPlay(FX_STEP01);
+		else 
+			sndHandle[2] = nuAuStlSndPlayerPlay(FX_STEP02);
+		last_step = !last_step;
+	}
+	
 	// button A pressed => sword is swingged. This could damage enemies or activate items
 	if (game.character.state == CHARACTER_ATTACK) {
 		if (game.character.side->action)
@@ -598,12 +607,15 @@ void drawDebug()  {
 		nuDebConTextPos(0,2, 15);
 		nuDebConCPuts(0, conbuf);
 		
-		/*sprintf(conbuf, "sound     : %d  ", MusHandleAsk(sndHandle[0]));
-		nuDebConTextPos(0,2, 15);
+		sprintf(conbuf, "sound     : %d  ", MusHandleAsk(sndHandle[0]));
+		nuDebConTextPos(0,2, 16);
 		nuDebConCPuts(0, conbuf);
 		sprintf(conbuf, "sound     : %d  ", MusHandleAsk(sndHandle[1]));
-		nuDebConTextPos(0,2, 16);
-		nuDebConCPuts(0, conbuf);*/
+		nuDebConTextPos(0,2, 17);
+		nuDebConCPuts(0, conbuf);
+		sprintf(conbuf, "sound     : %d  ", MusHandleAsk(sndHandle[2]));
+		nuDebConTextPos(0,2, 18);
+		nuDebConCPuts(0, conbuf);
 		
 		sprintf(conbuf, "RamLeft : %d  ", (u32)my2dlibrary.texturePointer - (u32)_codeSegmentEnd);
 		nuDebConTextPos(0,19,3);
@@ -731,6 +743,7 @@ int collisionKey(CollisionBox* collision, MapRow* row, int is_character) {
 		checkIntersection(collision->start_x, collision->end_x, 28, 51) && checkIntersection(collision->start_y, collision->end_y, 10, 30)
 		)) {
 		if (row->state == TILE_ACTION_CLOSED && is_character) {
+			sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
 			game.character.keys++;
 			row->state = TILE_ACTION_OPENED;
 			nuContRmbStart(0, 256, 10);

@@ -170,9 +170,6 @@ void initLevel_00() {
 	music_tracks[0] = (MusicTrack){FX_MACHINAT, 104, 0, &music_tracks[1]};
 	music_tracks[1] = (MusicTrack){FX_UPSETTIN, 63, 0, &music_tracks[2]};
 	music_tracks[2] = (MusicTrack){FX_FERAL, 66, 0, &music_tracks[0]};
-	/*music_tracks[0].next_track = &music_tracks[1];
-	music_tracks[1].next_track = &music_tracks[2];
-	music_tracks[2].next_track = &music_tracks[0];*/
 	current_music = &music_tracks[0];
 }
 

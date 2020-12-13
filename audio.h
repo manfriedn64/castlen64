@@ -22,7 +22,7 @@ void stopMusic();
 
 int ptr_buf[];
 int sfx_buf[];
-musHandle sndHandle[2];
+musHandle sndHandle[3];
 MusicTrack*				current_music;
 
 

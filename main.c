@@ -6,7 +6,7 @@
 
 extern int ptr_buf[NU_AU_SAMPLE_SIZE];
 extern int sfx_buf[NU_AU_SE_SIZE];
-extern musHandle sndHandle[2];
+extern musHandle sndHandle[3];
 /*extern musHandle musicHandle;
 extern musHandle soundHandle;*/
 
