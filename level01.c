@@ -7,8 +7,6 @@
 #include "level01.h"
 #include "assets/music/all.h"
 
-extern Character characters[10];
-
 void initLevel_01() {
 	Tile* tile;
 	MapColumn* column;
@@ -27,6 +25,8 @@ void initLevel_01() {
 	setTexturesDungeon();
 	setTexturesShared();
 	setTexturesCharacters();
+	
+	my2D_loadTexture(&splash_screen, (u32)_SplashLevel01SegmentRomStart, (u32)_SplashLevel01SegmentRomEnd, 512, 395);
 	
 	loadRAMLevel(&game.level->map, (u32)_Level01SegmentRomStart, (u32)_Level01SegmentRomEnd);
 	initMap(&map, game.level->map.width, game.level->map.width * game.level->map.height * 2, 300, 64, 64);
@@ -89,8 +89,8 @@ void initLevel_01() {
 	//initMainCharacter(3264, 3392, 255);
 	
 	// test end game
-	/*initCharacter(2240, 256, 255);
-	game.character.keys = 1;*/
+	//initMainCharacter(2240, 256, 255);
+	game.character.keys = 1;
 	
 	game.character.animation.border_x = game.level->map.width * map.column_width;
 	game.character.animation.border_y = game.level->map.height * map.row_height;
@@ -155,13 +155,20 @@ void initLevel_01() {
 	music_tracks[0] = (MusicTrack){FX_EVILMARC, 71, 0, &music_tracks[1]};
 	music_tracks[1] = (MusicTrack){FX_DANGER, 58, 0, &music_tracks[2]};
 	music_tracks[2] = (MusicTrack){FX_SUPERNAT, 52, 0, &music_tracks[0]};
-	current_music = &music_tracks[0];
+	music_tracks[3] = (MusicTrack){FX_DISCOVER, 15, 0, NULL};
+	current_music = &music_tracks[3];
 }
 
 void level01End(MapRow* row) {
 	// back to start menu ?
 	stopMusic();
-	game.level = &levels[2];
-	game.state = GAMESTATE_LOADING;
+	my2D_loadTexture(&splash_screen, (u32)_SplashEndSegmentRomStart, (u32)_SplashEndSegmentRomEnd, 512, 395);
+	
+	game.level->loadControls = NULL;
+	game.level->drawScreen = drawSplash;
+	current_music = &music_tracks[3];
+	
+	/*game.level = &levels[2];
+	game.state = GAMESTATE_LOADING;*/
 	freeMap(&map);
 }

@@ -128,8 +128,12 @@ with open(sys.argv[1], 'r') as csvfile:
                     value = 22
             elif line[char] == "▼":
                 value = 9
+                if char > 0 and line[char-1] == "▼":
+                    value = 10
             elif line[char] == "▲":
                 value = 23
+                if char > 0 and line[char-1] == "▲":
+                   value = 24
             elif line[char] == "~":
                 value = 36
             elif line[char] == "¤":

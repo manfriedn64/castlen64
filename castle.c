@@ -111,8 +111,8 @@ void setup_640() {
 	levels[0] = (Level){"Expansion Pak Warning", initExpansionPak, NULL, drawExpansionPak, NULL};
 	levels[1] = (Level){"Intro", initIntro, updateIntro, drawIntro, NULL};
 	levels[2] = (Level){"Main Menu", initMainMenu, updateMenu, drawMainMenu, NULL};
-	levels[3] = (Level){"Start Level", initLevel_00, updateLevel, drawLevel, NULL};
-	levels[4] = (Level){"Level One", initLevel_01, updateLevel, drawLevel, NULL};
+	levels[3] = (Level){"Start Level", initLevel_00, updateSplash, drawSplash, NULL};
+	levels[4] = (Level){"Level One", initLevel_01, updateSplash, drawSplash, NULL};
 
 	game.state = GAMESTATE_NORMAL;
 	game.speed = 4;
@@ -130,6 +130,8 @@ void setup_640() {
 	}
 	my2dlibrary.debug = False;
 	game.level->loadLevel();
+	game.sound = 255;
+	game.music = 255;
 }
 
 void loadRAMLevel(LevelMap*	map, u32 segmentStart, u32 segmentEnd) {
@@ -179,14 +181,14 @@ void loadMap(Map* map) {
 				
 				p_row->tile = tile;
 			} else {
-				if (i_value == 38 || i_value == 49 || i_value == 46 || i_value == 53 || i_value == 55 || i_value == 43) // pillar, candelier, barrel, pot, plant in pot or keu
+				if (i_value == 38 || i_value == 46 || i_value == 53 || i_value == 55 || i_value == 43) // pillar, barrel, pot, plant in pot or keu
 					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[11]));
 				if (i_value == 63 || i_value == 64 || i_value == 65 || i_value == 66 || i_value == 67) // book shelf
 					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[11]));
-				if (i_value == 57 || i_value == 51) // torch, small flag
-					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[34]));
-				if (i_value == 58 || i_value ==  52) // walltorch, big flag
-					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[33]));
+				/*if (i_value == 57 || i_value == 51) // torch, small flag
+					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[34]));*/
+				/*if (i_value == 58 || i_value ==  52) // walltorch, big flag
+					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[33]));*/
 				if (i_value == 59 || i_value ==  60 || i_value == 61 || i_value ==  77) // windows
 					appendMapRow(findMapColumn(map, column), nextMapRow(map, row, &map->tiles[33]));
 				tile = &map->tiles[i_value];
@@ -213,6 +215,22 @@ void drawScreen() {
 	
 	if (game.level->drawScreen && game.state == GAMESTATE_NORMAL)
 		game.level->drawScreen();
+}
+
+void drawSplash() {
+	my2D_drawRectangle(0, 0, my2dlibrary.width-1, my2dlibrary.height-1, 0, 0, 0, 1);
+	my2D_drawFullBackGround(&splash_screen, MY2D_CENTER, MY2D_CENTER);
+}
+
+void updateSplash() {
+	checkMusic(current_music);
+	nuContDataGetExAll(contData);
+	if (contData[0].trigger & A_BUTTON || contData[0].trigger & START_BUTTON) {
+		game.level->loadControls = updateLevel;
+		game.level->drawScreen = drawLevel;
+		stopMusic();
+		current_music = &music_tracks[0];
+	}
 }
 
 void drawLevel() {
@@ -313,7 +331,7 @@ void updateLevel() {
 			game.character.animation.sprite = &game.character.side->attack;
 			game.character.animation.frame  = 0;
 			game.character.animation.status = ANIMATION_STATUS_RUNNING;
-			sndHandle[1] = nuAuStlSndPlayerPlay(FX_SWORD_VD);
+			playSound(1, FX_SWORD_VD);
 		}
 	}
 	else if (contData[i].button & B_BUTTON || contData[i].trigger & B_BUTTON) {
@@ -383,9 +401,9 @@ void updateLevel() {
 	
 	if (game.character.state == CHARACTER_WALK && MusHandleAsk(sndHandle[2]) == 0) {
 		if (last_step) 
-			sndHandle[2] = nuAuStlSndPlayerPlay(FX_STEP01);
+			playSound(2, FX_STEP01);
 		else 
-			sndHandle[2] = nuAuStlSndPlayerPlay(FX_STEP02);
+			playSound(2, FX_STEP02);
 		last_step = !last_step;
 	}
 	
@@ -646,9 +664,9 @@ int collisionBarrel(CollisionBox* collision, MapRow* row, int is_character) {
 			return COLLISION_BLOCK;
 		else if (collision->action == COLLISION_ACTION_SMASH && row->action != NULL) {
 			if (row->tile == &map.tiles[53] || row->tile == &map.tiles[54] ||row->tile == &map.tiles[55])
-				sndHandle[1] = nuAuStlSndPlayerPlay(FX_BREAK);
+				playSound(1, FX_BREAK);
 			else
-				sndHandle[1] = nuAuStlSndPlayerPlay(FX_CUT);
+				playSound(1, FX_CUT);
 			row->action(row);
 			if (game.rumble)
 				nuContRmbStart(0, 256, 80);
@@ -670,7 +688,7 @@ int collisionLever(CollisionBox* collision, MapRow* row, int is_character) {
 			row->state++;
 			if (row->state == TILE_ACTION_LEVER_OPENED) {
 				actionRow(row);
-				sndHandle[1] = nuAuStlSndPlayerPlay(FX_METAL);
+				playSound(1, FX_METAL);
 			}
 			nuContRmbStart(0, 256, 20);
 		}
@@ -703,7 +721,7 @@ int collisionDoorKeyLeft(CollisionBox* collision, MapRow* row, int is_character)
 		else if (collision->action == COLLISION_ACTION_PUSH && row->state == TILE_ACTION_CLOSED && game.character.keys > 0) {
 			game.character.keys--;
 			row->state = TILE_ACTION_OPENED;
-			sndHandle[1] = nuAuStlSndPlayerPlay(FX_KEY);
+			playSound(1, FX_KEY);
 			nuContRmbStart(0, 256, 30);
 			actionRow(row);
 		}
@@ -719,7 +737,7 @@ int collisionDoorKeyRight(CollisionBox* collision, MapRow* row, int is_character
 		else if (collision->action == COLLISION_ACTION_PUSH && row->state == TILE_ACTION_CLOSED && game.character.keys > 0) {
 			game.character.keys--;
 			row->state = TILE_ACTION_OPENED;
-			sndHandle[1] = nuAuStlSndPlayerPlay(FX_KEY);
+			playSound(1, FX_KEY);
 			nuContRmbStart(0, 256, 30);
 			actionRow(row);
 		}
@@ -743,7 +761,7 @@ int collisionKey(CollisionBox* collision, MapRow* row, int is_character) {
 		checkIntersection(collision->start_x, collision->end_x, 28, 51) && checkIntersection(collision->start_y, collision->end_y, 10, 30)
 		)) {
 		if (row->state == TILE_ACTION_CLOSED && is_character) {
-			sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
+			playSound(1, FX_BELL);
 			game.character.keys++;
 			row->state = TILE_ACTION_OPENED;
 			nuContRmbStart(0, 256, 10);
@@ -759,7 +777,7 @@ int collisionButton(CollisionBox* collision, MapRow* row, int is_character) {
 		//collision->start_y  > 3 && collision->end_y < 54 && collision->start_x > 7 && collision->end_y < 56) {
 		row->state = TILE_ACTION_OPENED;
 		nuContRmbStart(0, 256, 40);
-		sndHandle[1] = nuAuStlSndPlayerPlay(FX_ROCK);
+		playSound(1, FX_ROCK);
 		actionRow(row);
 	}
 	return COLLISION_NONE;

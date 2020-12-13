@@ -135,31 +135,31 @@ void setTexturesCastle() {
 	my2D_loadTexture(&texture[38], (u32)_Castle_PillarSegmentRomStart, (u32)_Castle_PillarSegmentRomEnd, 64, 192);
 	my2D_loadTexture(&texture[39], (u32)_Castle_WallPillarSegmentRomStart, (u32)_Castle_WallPillarSegmentRomEnd, 64, 256);
 	
+	my2D_loadTexture(&texture[61], (u32)_ObjectCastleButtonSegmentRomStart, (u32)_ObjectCastleButtonSegmentRomEnd, 128, 64);
+	my2D_loadTexture(&texture[65], (u32)_ObjectCastleTrapSegmentRomStart, (u32)_ObjectCastleTrapSegmentRomEnd, 128, 66);
+	my2D_loadTexture(&texture[71], (u32)_SceneryCastleFlag01SegmentRomStart, (u32)_SceneryCastleFlag01SegmentRomEnd, 64, 64);
+	my2D_loadTexture(&texture[77], (u32)_SceneryCastleTorchSegmentRomStart, (u32)_SceneryCastleTorchSegmentRomEnd, 256, 64);
+	my2D_loadTexture(&texture[78], (u32)_SceneryCastleWallTorchSegmentRomStart, (u32)_SceneryCastleWallTorchSegmentRomEnd, 256, 128);
+	my2D_loadTexture(&texture[72], (u32)_SceneryCastleFlag02SegmentRomStart, (u32)_SceneryCastleFlag02SegmentRomEnd, 64, 128);
+	my2D_loadTexture(&texture[69], (u32)_SceneryCastleCandelierSegmentRomStart, (u32)_SceneryCastleCandelierSegmentRomEnd, 192, 96);
 }
 
 
 void setTexturesShared() {
 	my2D_loadTexture(&texture[60], (u32)_ObjectBigDoorLeftSegmentRomStart, (u32)_ObjectBigDoorLeftSegmentRomEnd, 128, 166);
 	my2D_loadTexture(&texture[94], (u32)_ObjectBigDoorRightSegmentRomStart, (u32)_ObjectBigDoorRightSegmentRomEnd, 128, 166);
-	my2D_loadTexture(&texture[61], (u32)_ObjectButtonSegmentRomStart, (u32)_ObjectButtonSegmentRomEnd, 128, 64);
 	my2D_loadTexture(&texture[62], (u32)_ObjectDoorSegmentRomStart, (u32)_ObjectDoorSegmentRomEnd, 128, 172);
 	my2D_loadTexture(&texture[63], (u32)_ObjectKeySegmentRomStart, (u32)_ObjectKeySegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[64], (u32)_ObjectLeverSegmentRomStart, (u32)_ObjectLeverSegmentRomEnd, 256, 64);
-	my2D_loadTexture(&texture[65], (u32)_ObjectTrapSegmentRomStart, (u32)_ObjectTrapSegmentRomEnd, 128, 66);
 	
 	my2D_loadTexture(&texture[66], (u32)_SceneryBarrel01SegmentRomStart, (u32)_SceneryBarrel01SegmentRomEnd, 64, 82);
 	my2D_loadTexture(&texture[67], (u32)_SceneryBarrel02SegmentRomStart, (u32)_SceneryBarrel02SegmentRomEnd, 64, 82);
 	my2D_loadTexture(&texture[68], (u32)_SceneryBarrel03SegmentRomStart, (u32)_SceneryBarrel03SegmentRomEnd, 64, 82);
-	my2D_loadTexture(&texture[69], (u32)_SceneryCandelierSegmentRomStart, (u32)_SceneryCandelierSegmentRomEnd, 192, 96);
 	my2D_loadTexture(&texture[70], (u32)_SceneryChairSegmentRomStart, (u32)_SceneryChairSegmentRomEnd, 64, 64);
-	my2D_loadTexture(&texture[71], (u32)_SceneryFlag01SegmentRomStart, (u32)_SceneryFlag01SegmentRomEnd, 64, 64);
-	my2D_loadTexture(&texture[72], (u32)_SceneryFlag02SegmentRomStart, (u32)_SceneryFlag02SegmentRomEnd, 64, 128);
 	my2D_loadTexture(&texture[73], (u32)_SceneryPot01SegmentRomStart, (u32)_SceneryPot01SegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[74], (u32)_SceneryPot02SegmentRomStart, (u32)_SceneryPot02SegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[75], (u32)_SceneryPot03SegmentRomStart, (u32)_SceneryPot03SegmentRomEnd, 64, 96);
 	my2D_loadTexture(&texture[76], (u32)_SceneryTableSegmentRomStart, (u32)_SceneryTableSegmentRomEnd, 96, 128);
-	my2D_loadTexture(&texture[77], (u32)_SceneryTorchSegmentRomStart, (u32)_SceneryTorchSegmentRomEnd, 256, 64);
-	my2D_loadTexture(&texture[78], (u32)_SceneryWallTorchSegmentRomStart, (u32)_SceneryWallTorchSegmentRomEnd, 256, 128);
 	my2D_loadTexture(&texture[79], (u32)_SceneryWindow01SegmentRomStart, (u32)_SceneryWindow01SegmentRomEnd, 64, 128);
 	my2D_loadTexture(&texture[80], (u32)_SceneryWindow02SegmentRomStart, (u32)_SceneryWindow02SegmentRomEnd, 64, 128);
 	my2D_loadTexture(&texture[81], (u32)_SceneryWindow03SegmentRomStart, (u32)_SceneryWindow03SegmentRomEnd, 64, 128);
@@ -263,6 +263,14 @@ void setTexturesDungeon() {
 	my2D_loadTexture(&texture[37], (u32)_Dungeon_UpAloneSegmentRomStart, (u32)_Dungeon_UpAloneSegmentRomEnd, 64, 64);
 	my2D_loadTexture(&texture[38], (u32)_Dungeon_PillarSegmentRomStart, (u32)_Dungeon_PillarSegmentRomEnd, 64, 192);
 	my2D_loadTexture(&texture[39], (u32)_Dungeon_WallPillarSegmentRomStart, (u32)_Dungeon_WallPillarSegmentRomEnd, 64, 256);
+	
+	my2D_loadTexture(&texture[61], (u32)_ObjectDungeonButtonSegmentRomStart, (u32)_ObjectDungeonButtonSegmentRomEnd, 128, 64);
+	my2D_loadTexture(&texture[65], (u32)_ObjectDungeonTrapSegmentRomStart, (u32)_ObjectDungeonTrapSegmentRomEnd, 128, 66);
+	my2D_loadTexture(&texture[71], (u32)_SceneryDungeonFlag01SegmentRomStart, (u32)_SceneryDungeonFlag01SegmentRomEnd, 64, 64);
+	my2D_loadTexture(&texture[77], (u32)_SceneryDungeonTorchSegmentRomStart, (u32)_SceneryDungeonTorchSegmentRomEnd, 256, 64);
+	my2D_loadTexture(&texture[78], (u32)_SceneryDungeonWallTorchSegmentRomStart, (u32)_SceneryDungeonWallTorchSegmentRomEnd, 256, 128);
+	my2D_loadTexture(&texture[72], (u32)_SceneryDungeonFlag02SegmentRomStart, (u32)_SceneryDungeonFlag02SegmentRomEnd, 64, 128);
+	my2D_loadTexture(&texture[69], (u32)_SceneryDungeonCandelierSegmentRomStart, (u32)_SceneryDungeonCandelierSegmentRomEnd, 192, 96);
 }
 
 
@@ -308,10 +316,10 @@ void setTiles() {
 	map.tiles[38] = (Tile){collisionPillar, &texture[38], NULL, NULL, 20};
 	map.tiles[39] = (Tile){collisionWallPillar, &texture[39], NULL, NULL, TILE_FOREGROUND_NEVER};
 	
-	map.tiles[40] = (Tile){collisionDoorKeyLeft, NULL, &animations[3], NULL, 0};
-	map.tiles[62] = (Tile){collisionDoorKeyRight, NULL, &animations[8], NULL, 0};
+	map.tiles[40] = (Tile){collisionDoorKeyLeft, NULL, &animations[3], NULL, 40}; 
+	map.tiles[62] = (Tile){collisionDoorKeyRight, NULL, &animations[8], NULL, 40};
 	map.tiles[41] = (Tile){collisionButton, NULL, &animations[4], NULL, TILE_FOREGROUND_NEVER};
-	map.tiles[42] = (Tile){collisionDoor, NULL, &animations[5], NULL, 50}; //simple door. foreground = 50 is an arbitrary value which shoud be good enought as long as it's lower that the tile height and above 1 (50 is a security just in case...)
+	map.tiles[42] = (Tile){collisionDoor, NULL, &animations[5], NULL, 50}; //simple door. 
 	map.tiles[78] = (Tile){collisionDoorKeyLeft, NULL, &animations[5], NULL, 50}; // simple door with key
 	map.tiles[43] = (Tile){collisionKey, &texture[63], NULL, NULL, TILE_FOREGROUND_NEVER}; // key
 	map.tiles[44] = (Tile){collisionLever, NULL, &animations[6], NULL, 40}; // lever

@@ -61,6 +61,8 @@ struct Game {
 	int			scale;
 	Bool 		rumble;
 	int			speed;
+	int			sound;
+	int			music;
 } ;
 
 struct RomSegment {
@@ -90,6 +92,8 @@ void platformInit();
 
 void checkControls();
 void drawDebug();
+void drawSplash();
+void updateSplash();
 
 int collisionDoorKeyLeft(CollisionBox* , MapRow*, int);
 int collisionDoorKeyRight(CollisionBox* , MapRow*, int);
@@ -134,6 +138,7 @@ Level					levels[10];
 u64						time_lastmove;
 MusicTrack				music_tracks[3];
 Character				characters[10];
+Texture					splash_screen;
 
 Map						map;
 

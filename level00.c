@@ -7,8 +7,6 @@
 #include "level00.h"
 #include "assets/music/all.h"
 
-extern Character characters[10];
-
 void initLevel_00() {
 	Tile* tile;
 	MapColumn* column;
@@ -27,6 +25,8 @@ void initLevel_00() {
 	setTexturesCastle();
 	setTexturesShared();
 	setTexturesCharacters();
+	
+	my2D_loadTexture(&splash_screen, (u32)_SplashLevel00SegmentRomStart, (u32)_SplashLevel00SegmentRomEnd, 512, 395);
 	
 	loadRAMLevel(&game.level->map, (u32)_Level00SegmentRomStart, (u32)_Level00SegmentRomEnd);
 	initMap(&map, game.level->map.width, game.level->map.width * game.level->map.height * 2, 300, 64, 64);
@@ -84,6 +84,12 @@ void initLevel_00() {
 	button->related_row = door;
 
 
+	bigdoorleft = nextMapRow(&map, 24, &map.tiles[40]);
+	appendMapRow(findMapColumn(&map, 6), bigdoorleft);
+	bigdoorright = nextMapRow(&map, 24, &map.tiles[62]);
+	appendMapRow(findMapColumn(&map, 7), bigdoorright);
+	
+	
 	bigdoorleft = nextMapRow(&map, 14, &map.tiles[40]);
 	appendMapRow(findMapColumn(&map, 6), bigdoorleft);
 	bigdoorright = nextMapRow(&map, 14, &map.tiles[62]);
@@ -98,7 +104,7 @@ void initLevel_00() {
 	sortMap(&map);
 
 	// normal start position
-	initMainCharacter(480, 1344, 255);
+	initMainCharacter(448, 1280, 255);
 	
 	//initCharacter(3264, 3392, 255);
 	
@@ -170,12 +176,13 @@ void initLevel_00() {
 	music_tracks[0] = (MusicTrack){FX_MACHINAT, 104, 0, &music_tracks[1]};
 	music_tracks[1] = (MusicTrack){FX_UPSETTIN, 63, 0, &music_tracks[2]};
 	music_tracks[2] = (MusicTrack){FX_FERAL, 66, 0, &music_tracks[0]};
-	current_music = &music_tracks[0];
+	music_tracks[3] = (MusicTrack){FX_NEWS, 27, 0, NULL};
+	current_music = &music_tracks[3];
 }
 
 
 void level00End(MapRow* row) {
-	// back to start menu ?
+	
 	stopMusic();
 	game.level = &levels[4];
 	game.state = GAMESTATE_LOADING;

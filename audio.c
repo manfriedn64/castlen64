@@ -1,6 +1,7 @@
 #include <nusys.h>
 #include "audio.h"
 #include "main.h"
+#include "castle.h"
 
 void initAudio(void) {
     musConfig c;
@@ -51,6 +52,7 @@ void checkMusic(MusicTrack* music) {
 	if (current_music) {
 		if (current_music->started == 0) {
 			sndHandle[0] = nuAuStlSndPlayerPlay(current_music->track_id);
+			nuAuStlSndPlayerSetSndVol(sndHandle[0], game.music);
 			current_music->started = current_time;
 		} else if (OS_CYCLES_TO_USEC(osGetTime()-current_music->started) / 1000000 > current_music->total_length) {
 			if (current_music->next_track) {
@@ -63,7 +65,14 @@ void checkMusic(MusicTrack* music) {
 	}
 }
 
+void playSound(int channel, int id) {
+	sndHandle[channel] = nuAuStlSndPlayerPlay(id);
+	nuAuStlSndPlayerSetSndVol(sndHandle[channel], game.sound);
+}
+
 void stopMusic() {
-	current_music = NULL;
 	nuAuStlSndPlayerSndStop(sndHandle[0], 0);
+	if (current_music)
+		current_music->started = 0;
+	current_music = NULL;
 }

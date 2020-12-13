@@ -19,6 +19,7 @@ void initAudio();
 void loadAudio(u32 ptrStart, u32 ptrEnd, u32 sfxStart, u32 sfxEnd, void *wbkStart);
 void checkMusic(MusicTrack*);
 void stopMusic();
+void playSound(int, int);
 
 int ptr_buf[];
 int sfx_buf[];

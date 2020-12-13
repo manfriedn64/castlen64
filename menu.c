@@ -38,6 +38,7 @@ void initMainMenu() {
 	my2D_loadTexture(&texture[14], (u32)_MainMenuTitleSegmentRomStart, (u32)_MainMenuTitleSegmentRomEnd, 432, 75);
 	my2D_loadTexture(&texture[15], (u32)_MainMenuMenuSegmentRomStart, (u32)_MainMenuMenuSegmentRomEnd, 256, 200);
 	my2D_loadTexture(&texture[16], (u32)_MainMenuHeadSegmentRomStart, (u32)_MainMenuHeadSegmentRomEnd, 40, 46);
+	my2D_loadTexture(&texture[17], (u32)_MainMenuVolumeSegmentRomStart, (u32)_MainMenuVolumeSegmentRomEnd, 256, 40);
 	
 	backgrounds[0] = (ScrollingBackground){0, 0,   0, 0, 0.1, &texture[13], &backgrounds[1]};
 	backgrounds[1] = (ScrollingBackground){0, 100, 0, 0, 0.2, &texture[12], &backgrounds[2]};
@@ -85,6 +86,13 @@ void drawMainMenu() {
 	coordinates = (Coordinates){0, 0, &texture[16], 40, 46};
 	my2D_drawBackGroundCoordinates(&coordinates, 320, menu_selected * 50 + 238, 0);
 	
+	if (menu == 1) {
+		if (menu_selected == 0)
+			coordinates = (Coordinates){0, 0, &texture[17], game.music, 40};
+		else
+			coordinates = (Coordinates){0, 0, &texture[17], game.sound, 40};
+		my2D_drawBackGroundCoordinates(&coordinates, 320, 200, 0);
+	}
 
 	
 	//out_rgb[0] * 2048 + out_rgb[1] *   64 + out_rgb[2] *    2 + out_rgb[3]
@@ -140,16 +148,51 @@ void updateMenu() {
 	
 	if (contData[0].trigger & U_JPAD) {
 		menu_selected -= 1;
-		sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
+		playSound(1, FX_BELL);
+		/*sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
+		nuAuStlSndPlayerSetSndVol(sndHandle[1], game.sound);*/
 	}
 	if (contData[0].trigger & D_JPAD) {
 		menu_selected += 1;
-		sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
+		playSound(1, FX_BELL);
+		/*sndHandle[1] = nuAuStlSndPlayerPlay(FX_BELL);
+		nuAuStlSndPlayerSetSndVol(sndHandle[1], game.sound);*/
 	}
 	if (menu_selected < 0)
 		menu_selected = 1;
 	if (menu_selected > 1)
 		menu_selected = 0;
+	
+	if (contData[0].button & L_JPAD && menu == 1) {
+		if (menu_selected == 0) {
+			game.music--;
+			if (game.music < 0)
+				game.music = 0;
+		nuAuStlSndPlayerSetSndVol(sndHandle[0], game.music);
+		}
+		if (menu_selected == 1) {
+			game.sound--;
+			if (game.sound < 0)
+				game.sound = 0;
+			nuAuStlSndPlayerSetSndVol(sndHandle[1], game.sound);
+			nuAuStlSndPlayerSetSndVol(sndHandle[2], game.sound);
+		}
+	}
+	if (contData[0].button & R_JPAD && menu == 1) {
+		if (menu_selected == 0) {
+			game.music++;
+			if (game.music > 255)
+				game.music = 255;
+			nuAuStlSndPlayerSetSndVol(sndHandle[0], game.music);
+		}
+		if (menu_selected == 1) {
+			game.sound++;
+			if (game.sound > 255)
+				game.sound = 255;
+			nuAuStlSndPlayerSetSndVol(sndHandle[1], game.sound);
+			nuAuStlSndPlayerSetSndVol(sndHandle[2], game.sound);
+		}
+	}
 	
 	if (contData[0].trigger & A_BUTTON || contData[0].trigger & START_BUTTON)
 		if (menu == 0)

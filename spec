@@ -371,9 +371,14 @@ beginseg
   include "assets/objects/bigdoor_right.551"
 endseg
 beginseg
-  name    "ObjectButton"
+  name    "ObjectCastleButton"
   flags   RAW
-  include "assets/objects/button.551"
+  include "assets/objects/castle_button.551"
+endseg
+beginseg
+  name    "ObjectDungeonButton"
+  flags   RAW
+  include "assets/objects/dungeon_button.551"
 endseg
 beginseg
   name    "ObjectDoor"
@@ -391,9 +396,14 @@ beginseg
   include "assets/objects/lever.551"
 endseg
 beginseg
-  name    "ObjectTrap"
+  name    "ObjectCastleTrap"
   flags   RAW
-  include "assets/objects/trap.551"
+  include "assets/objects/castle_trap.551"
+endseg
+beginseg
+  name    "ObjectDungeonTrap"
+  flags   RAW
+  include "assets/objects/dungeon_trap.551"
 endseg
 
 beginseg
@@ -412,9 +422,14 @@ beginseg
   include "assets/scenery/barrel03.551"
 endseg
 beginseg
-  name    "SceneryCandelier"
+  name    "SceneryCastleCandelier"
   flags   RAW
-  include "assets/scenery/candelier.551"
+  include "assets/scenery/castle_candelier.551"
+endseg
+beginseg
+  name    "SceneryDungeonCandelier"
+  flags   RAW
+  include "assets/scenery/dungeon_candelier.551"
 endseg
 beginseg
   name    "SceneryChair"
@@ -422,14 +437,24 @@ beginseg
   include "assets/scenery/chair.551"
 endseg
 beginseg
-  name    "SceneryFlag01"
+  name    "SceneryCastleFlag01"
   flags   RAW
-  include "assets/scenery/flag01.551"
+  include "assets/scenery/castle_flag01.551"
 endseg
 beginseg
-  name    "SceneryFlag02"
+  name    "SceneryDungeonFlag01"
   flags   RAW
-  include "assets/scenery/flag02.551"
+  include "assets/scenery/dungeon_flag01.551"
+endseg
+beginseg
+  name    "SceneryCastleFlag02"
+  flags   RAW
+  include "assets/scenery/castle_flag02.551"
+endseg
+beginseg
+  name    "SceneryDungeonFlag02"
+  flags   RAW
+  include "assets/scenery/dungeon_flag02.551"
 endseg
 beginseg
   name    "SceneryPot01"
@@ -452,14 +477,24 @@ beginseg
   include "assets/scenery/table.551"
 endseg
 beginseg
-  name    "SceneryTorch"
+  name    "SceneryCastleTorch"
   flags   RAW
-  include "assets/scenery/torch.551"
+  include "assets/scenery/castle_torch.551"
 endseg
 beginseg
-  name    "SceneryWallTorch"
+  name    "SceneryDungeonTorch"
   flags   RAW
-  include "assets/scenery/walltorch.551"
+  include "assets/scenery/dungeon_torch.551"
+endseg
+beginseg
+  name    "SceneryCastleWallTorch"
+  flags   RAW
+  include "assets/scenery/castle_walltorch.551"
+endseg
+beginseg
+  name    "SceneryDungeonWallTorch"
+  flags   RAW
+  include "assets/scenery/dungeon_walltorch.551"
 endseg
 beginseg
   name    "SceneryWindow01"
@@ -811,6 +846,11 @@ beginseg
 endseg
 
 beginseg
+	name	"MainMenuVolume"
+	flags	RAW
+	include "assets/mainmenu/volume.551"
+endseg
+beginseg
 	name	"MainMenuBackground01"
 	flags	RAW
 	include "assets/mainmenu/layer_1.551"
@@ -864,6 +904,22 @@ beginseg
 	name	"MainMenuHead"
 	flags	RAW
 	include "assets/mainmenu/head.551"
+endseg
+
+beginseg
+	name	"SplashLevel00"
+	flags	RAW
+	include "assets/levels/level00_splash.551"
+endseg
+beginseg
+	name	"SplashLevel01"
+	flags	RAW
+	include "assets/levels/level01_splash.551"
+endseg
+beginseg
+	name	"SplashEnd"
+	flags	RAW
+	include "assets/levels/end_splash.551"
 endseg
 
 beginwave

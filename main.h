@@ -109,25 +109,32 @@ EXTERN_SEGMENT(Dungeon_WallPillar);
 
 EXTERN_SEGMENT(ObjectBigDoorLeft);
 EXTERN_SEGMENT(ObjectBigDoorRight);
-EXTERN_SEGMENT(ObjectButton);
+EXTERN_SEGMENT(ObjectCastleButton);
+EXTERN_SEGMENT(ObjectDungeonButton);
 EXTERN_SEGMENT(ObjectDoor);
 EXTERN_SEGMENT(ObjectKey);
 EXTERN_SEGMENT(ObjectLever);
-EXTERN_SEGMENT(ObjectTrap);
+EXTERN_SEGMENT(ObjectCastleTrap);
+EXTERN_SEGMENT(ObjectDungeonTrap);
 
 EXTERN_SEGMENT(SceneryBarrel01);
 EXTERN_SEGMENT(SceneryBarrel02);
 EXTERN_SEGMENT(SceneryBarrel03);
-EXTERN_SEGMENT(SceneryCandelier);
+EXTERN_SEGMENT(SceneryCastleCandelier);
+EXTERN_SEGMENT(SceneryDungeonCandelier);
 EXTERN_SEGMENT(SceneryChair);
-EXTERN_SEGMENT(SceneryFlag01);
-EXTERN_SEGMENT(SceneryFlag02);
+EXTERN_SEGMENT(SceneryDungeonFlag01);
+EXTERN_SEGMENT(SceneryCastleFlag01);
+EXTERN_SEGMENT(SceneryCastleFlag02);
+EXTERN_SEGMENT(SceneryDungeonFlag02);
 EXTERN_SEGMENT(SceneryPot01);
 EXTERN_SEGMENT(SceneryPot02);
 EXTERN_SEGMENT(SceneryPot03);
 EXTERN_SEGMENT(SceneryTable);
-EXTERN_SEGMENT(SceneryTorch);
-EXTERN_SEGMENT(SceneryWallTorch);
+EXTERN_SEGMENT(SceneryCastleTorch);
+EXTERN_SEGMENT(SceneryDungeonTorch);
+EXTERN_SEGMENT(SceneryCastleWallTorch);
+EXTERN_SEGMENT(SceneryDungeonWallTorch);
 EXTERN_SEGMENT(SceneryWindow01);
 EXTERN_SEGMENT(SceneryWindow02);
 EXTERN_SEGMENT(SceneryWindow03);
@@ -218,6 +225,11 @@ EXTERN_SEGMENT(MainMenuBackground08);
 EXTERN_SEGMENT(MainMenuTitle);
 EXTERN_SEGMENT(MainMenuMenu);
 EXTERN_SEGMENT(MainMenuHead);
+EXTERN_SEGMENT(MainMenuVolume);
+
+EXTERN_SEGMENT(SplashLevel00);
+EXTERN_SEGMENT(SplashLevel01);
+EXTERN_SEGMENT(SplashEnd);
 
 
 
