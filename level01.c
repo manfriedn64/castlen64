@@ -164,4 +164,5 @@ void level01End(MapRow* row) {
 	stopMusic();
 	game.level = &levels[2];
 	game.state = GAMESTATE_LOADING;
+	freeMap(&map);
 }
