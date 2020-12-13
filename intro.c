@@ -4,7 +4,7 @@
 #include "intro.h"
 #include "audio.h"
 #include "2dlibrary.h"
-#include "assets/music/boing.h"
+#include "assets/music/all.h"
 
 extern Game game;
 extern Texture texture[300];
@@ -36,7 +36,8 @@ void initIntro() {
 	ratio[1] = 0.01;
 	ratio[2] = 0.01;
 	step = 0;
-	loadAudio((u32)_MusicBoingPtrSegmentRomStart, (u32)_MusicBoingPtrSegmentRomEnd, (u32)_MusicBoingSfxSegmentRomStart, (u32)_MusicBoingSfxSegmentRomEnd, _MusicBoingWbkSegmentRomStart);
+	//loadAudio((u32)_MusicBoingPtrSegmentRomStart, (u32)_MusicBoingPtrSegmentRomEnd, (u32)_MusicBoingSfxSegmentRomStart, (u32)_MusicBoingSfxSegmentRomEnd, _MusicBoingWbkSegmentRomStart);
+	loadAudio((u32)_MusicAllPtrSegmentRomStart, (u32)_MusicAllPtrSegmentRomEnd, (u32)_MusicAllSfxSegmentRomStart, (u32)_MusicAllSfxSegmentRomEnd, _MusicAllWbkSegmentRomStart);
 	sndHandle[1] = nuAuStlSndPlayerPlay(FX_BOING);
 }
 

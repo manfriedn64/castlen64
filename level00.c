@@ -5,7 +5,7 @@
 #include "main.h"
 #include "castle.h"
 #include "level00.h"
-#include "assets/music/level01.h"
+#include "assets/music/all.h"
 
 extern Character characters[10];
 
@@ -165,12 +165,14 @@ void initLevel_00() {
 	characters[0].left.push            = NULL;
 	characters[0].right.push           = NULL;*/
 	
-	loadAudio((u32)_MusicLevel01PtrSegmentRomStart, (u32)_MusicLevel01PtrSegmentRomEnd, (u32)_MusicLevel01SfxSegmentRomStart, (u32)_MusicLevel01SfxSegmentRomEnd, _MusicLevel01WbkSegmentRomStart);
+	loadAudio((u32)_MusicAllPtrSegmentRomStart, (u32)_MusicAllPtrSegmentRomEnd, (u32)_MusicAllSfxSegmentRomStart, (u32)_MusicAllSfxSegmentRomEnd, _MusicAllWbkSegmentRomStart);
 	
-	music_tracks[0] = (MusicTrack){FX_DANGER, 58, 0, &music_tracks[1]};
-	music_tracks[1] = (MusicTrack){FX_SUPERNAT, 52, 0, &music_tracks[0]};
-	music_tracks[0].next_track = &music_tracks[1];
-	music_tracks[1].next_track = &music_tracks[0];
+	music_tracks[0] = (MusicTrack){FX_MACHINAT, 104, 0, &music_tracks[1]};
+	music_tracks[1] = (MusicTrack){FX_UPSETTIN, 63, 0, &music_tracks[2]};
+	music_tracks[2] = (MusicTrack){FX_FERAL, 66, 0, &music_tracks[0]};
+	/*music_tracks[0].next_track = &music_tracks[1];
+	music_tracks[1].next_track = &music_tracks[2];
+	music_tracks[2].next_track = &music_tracks[0];*/
 	current_music = &music_tracks[0];
 }
 

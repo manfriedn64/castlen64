@@ -795,49 +795,19 @@ beginseg
 endseg
 
 beginseg
-	name	"MusicChanceWbk"
+	name	"MusicAllWbk"
 	flags	RAW
-	include "assets/music/chance.wbk"
+	include "assets/music/all.wbk"
 endseg
 beginseg
-	name	"MusicChanceSfx"
+	name	"MusicAllSfx"
 	flags	RAW
-	include "assets/music/chance.bfx"
+	include "assets/music/all.bfx"
 endseg
 beginseg
-	name	"MusicChancePtr"
+	name	"MusicAllPtr"
 	flags	RAW
-	include "assets/music/chance.ptr"
-endseg
-beginseg
-	name	"MusicLevel01Wbk"
-	flags	RAW
-	include "assets/music/level01.wbk"
-endseg
-beginseg
-	name	"MusicLevel01Sfx"
-	flags	RAW
-	include "assets/music/level01.bfx"
-endseg
-beginseg
-	name	"MusicLevel01Ptr"
-	flags	RAW
-	include "assets/music/level01.ptr"
-endseg
-beginseg
-	name	"MusicBoingWbk"
-	flags	RAW
-	include "assets/music/boing.wbk"
-endseg
-beginseg
-	name	"MusicBoingSfx"
-	flags	RAW
-	include "assets/music/boing.bfx"
-endseg
-beginseg
-	name	"MusicBoingPtr"
-	flags	RAW
-	include "assets/music/boing.ptr"
+	include "assets/music/all.ptr"
 endseg
 
 beginseg

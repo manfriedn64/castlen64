@@ -35,7 +35,7 @@ void initAudio(void) {
 	nuPiReadRom((u32)_MusicChanceSfxSegmentRomStart, (void *)sfx_buf, (u32)(_MusicChanceSfxSegmentRomEnd-_MusicChanceSfxSegmentRomStart));
 	MusFxBankInitialize(sfx_buf);*/
 	
-	loadAudio((u32)_MusicChancePtrSegmentRomStart, (u32)_MusicChancePtrSegmentRomEnd, (u32)_MusicChanceSfxSegmentRomStart, (u32)_MusicChanceSfxSegmentRomEnd, _MusicChanceWbkSegmentRomStart);
+	loadAudio((u32)_MusicAllPtrSegmentRomStart, (u32)_MusicAllPtrSegmentRomEnd, (u32)_MusicAllSfxSegmentRomStart, (u32)_MusicAllSfxSegmentRomEnd, _MusicAllWbkSegmentRomStart);
 
 }
 

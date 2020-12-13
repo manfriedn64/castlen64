@@ -194,7 +194,10 @@ EXTERN_SEGMENT(Level00);
 EXTERN_SEGMENT(Level01);
 
 
-EXTERN_SEGMENT(MusicChanceWbk);
+EXTERN_SEGMENT(MusicAllWbk);
+EXTERN_SEGMENT(MusicAllSfx);
+EXTERN_SEGMENT(MusicAllPtr);
+/*EXTERN_SEGMENT(MusicChanceWbk);
 EXTERN_SEGMENT(MusicChanceSfx);
 EXTERN_SEGMENT(MusicChancePtr);
 EXTERN_SEGMENT(MusicLevel01Wbk);
@@ -202,7 +205,7 @@ EXTERN_SEGMENT(MusicLevel01Sfx);
 EXTERN_SEGMENT(MusicLevel01Ptr);
 EXTERN_SEGMENT(MusicBoingWbk);
 EXTERN_SEGMENT(MusicBoingSfx);
-EXTERN_SEGMENT(MusicBoingPtr);
+EXTERN_SEGMENT(MusicBoingPtr);*/
 
 EXTERN_SEGMENT(MainMenuBackground01);
 EXTERN_SEGMENT(MainMenuBackground02);

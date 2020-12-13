@@ -3,7 +3,7 @@
 #include "castle.h"
 #include "menu.h"
 #include "2dlibrary.h"
-#include "assets/music/chance.h"
+#include "assets/music/all.h"
 
 extern Game game;
 extern Texture texture[300];
@@ -49,9 +49,10 @@ void initMainMenu() {
 	backgrounds[7] = (ScrollingBackground){0, 243, 0, 0, 1,   &texture[6], NULL};
 	//backgrounds[0] = (ScrollingBackground){0, 243, 0, 0, 1,   &texture[6], NULL};
 	
-	loadAudio((u32)_MusicChancePtrSegmentRomStart, (u32)_MusicChancePtrSegmentRomEnd, (u32)_MusicChanceSfxSegmentRomStart, (u32)_MusicChanceSfxSegmentRomEnd, _MusicChanceWbkSegmentRomStart);
-	music_tracks[0] = (MusicTrack){SMP_CHANCE, 37, 0, &music_tracks[0]};
-	music_tracks[0].next_track = &music_tracks[1];
+	//loadAudio((u32)_MusicChancePtrSegmentRomStart, (u32)_MusicChancePtrSegmentRomEnd, (u32)_MusicChanceSfxSegmentRomStart, (u32)_MusicChanceSfxSegmentRomEnd, _MusicChanceWbkSegmentRomStart);
+	loadAudio((u32)_MusicAllPtrSegmentRomStart, (u32)_MusicAllPtrSegmentRomEnd, (u32)_MusicAllSfxSegmentRomStart, (u32)_MusicAllSfxSegmentRomEnd, _MusicAllWbkSegmentRomStart);
+	music_tracks[0] = (MusicTrack){FX_CHANCE, 37, 0, &music_tracks[0]};
+	//music_tracks[0].next_track = &music_tracks[0];
 	current_music = &music_tracks[0];
 
 	current_frame = 0;

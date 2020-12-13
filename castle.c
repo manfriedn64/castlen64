@@ -12,8 +12,7 @@
 #include "2dlibrary.h"
 #include "level_shared.h"
 #include "2dmap.h"
-#include "assets/music/chance.h"
-#include "assets/music/level01.h"
+#include "assets/music/all.h"
 
 
 extern musHandle sndHandle[2];
@@ -634,6 +633,10 @@ int collisionBarrel(CollisionBox* collision, MapRow* row, int is_character) {
 		if (collision->action == COLLISION_ACTION_BLOCK)
 			return COLLISION_BLOCK;
 		else if (collision->action == COLLISION_ACTION_SMASH && row->action != NULL) {
+			if (row->tile == &map.tiles[53] || row->tile == &map.tiles[54] ||row->tile == &map.tiles[55])
+				sndHandle[1] = nuAuStlSndPlayerPlay(FX_BREAK);
+			else
+				sndHandle[1] = nuAuStlSndPlayerPlay(FX_CUT);
 			row->action(row);
 			if (game.rumble)
 				nuContRmbStart(0, 256, 80);
@@ -653,8 +656,10 @@ int collisionLever(CollisionBox* collision, MapRow* row, int is_character) {
 			return COLLISION_BLOCK;
 		else if (collision->action == COLLISION_ACTION_SMASH && row->state < TILE_ACTION_LEVER_OPENED) {
 			row->state++;
-			if (row->state == TILE_ACTION_LEVER_OPENED)
+			if (row->state == TILE_ACTION_LEVER_OPENED) {
 				actionRow(row);
+				sndHandle[1] = nuAuStlSndPlayerPlay(FX_METAL);
+			}
 			nuContRmbStart(0, 256, 20);
 		}
 	return COLLISION_NONE;
@@ -686,6 +691,7 @@ int collisionDoorKeyLeft(CollisionBox* collision, MapRow* row, int is_character)
 		else if (collision->action == COLLISION_ACTION_PUSH && row->state == TILE_ACTION_CLOSED && game.character.keys > 0) {
 			game.character.keys--;
 			row->state = TILE_ACTION_OPENED;
+			sndHandle[1] = nuAuStlSndPlayerPlay(FX_KEY);
 			nuContRmbStart(0, 256, 30);
 			actionRow(row);
 		}
@@ -701,6 +707,7 @@ int collisionDoorKeyRight(CollisionBox* collision, MapRow* row, int is_character
 		else if (collision->action == COLLISION_ACTION_PUSH && row->state == TILE_ACTION_CLOSED && game.character.keys > 0) {
 			game.character.keys--;
 			row->state = TILE_ACTION_OPENED;
+			sndHandle[1] = nuAuStlSndPlayerPlay(FX_KEY);
 			nuContRmbStart(0, 256, 30);
 			actionRow(row);
 		}
@@ -739,6 +746,7 @@ int collisionButton(CollisionBox* collision, MapRow* row, int is_character) {
 		//collision->start_y  > 3 && collision->end_y < 54 && collision->start_x > 7 && collision->end_y < 56) {
 		row->state = TILE_ACTION_OPENED;
 		nuContRmbStart(0, 256, 40);
+		sndHandle[1] = nuAuStlSndPlayerPlay(FX_ROCK);
 		actionRow(row);
 	}
 	return COLLISION_NONE;
